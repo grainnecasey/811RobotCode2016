@@ -9,6 +9,7 @@ public interface Config {
 	int BACK_RIGHT_PORT = 1;
 	int BACK_LEFT_PORT = 1;
 	
-	
+	int FORWARD_DRIVE_AXIS = 1; // temp
+	int TURN_DRIVE_AXIS = 3; // temp
 
 }
