@@ -1,6 +1,8 @@
 package org.usfirst.frc.team811.robot;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.*;
 
@@ -26,23 +28,36 @@ public class RobotMap implements Config {
     public static SpeedController drivefrontleft;
     public static SpeedController drivebackleft;
     public static SpeedController drivebackright;
+    public static Encoder driveEncoder;
+    public static RobotDrive driveTrain;
     
-    public static RobotDrive driveRobotDrive41;
+    public static CANTalon intakeTalon;
+    //limit switch set in
+    
+    public static SpeedController shooterTalon1;
+    public static SpeedController shooterTalon2;
+    public static Encoder shooterEncoder;
+    
+    public static CANTalon climberTalon;
+    //encoder set in
+    
     
     public static void init() {
     	
     	drivefrontright = new Talon(FRONT_RIGHT_PORT);
-        LiveWindow.addActuator("Drive", "frontright", (Talon) drivefrontright);
-        
         drivefrontleft = new Talon(FRONT_LEFT_PORT);
-        LiveWindow.addActuator("Drive", "frontleft", (Talon) drivefrontleft);
-        
         drivebackleft = new Talon(BACK_LEFT_PORT);
-        LiveWindow.addActuator("Drive", "backleft", (Talon) drivebackleft);
-        
         drivebackright = new Talon(BACK_RIGHT_PORT);
-        LiveWindow.addActuator("Drive", "backright", (Talon) drivebackright);
+        driveTrain = new RobotDrive(drivefrontleft, drivebackleft,
+                drivefrontright, drivebackright);
+        driveEncoder = new Encoder(DRIVE_ENCODER_PORT_1, DRIVE_ENCODER_PORT_2);
         
+        intakeTalon = new CANTalon(INTAKE_TALON_PORT);
         
+        shooterTalon1 = new Talon(SHOOTER_TALON_1_PORT);
+        shooterTalon2 = new Talon(SHOOTER_TALON_2_PORT);
+        shooterEncoder = new Encoder(SHOOTER_ENCODER_PORT_1, SHOOTER_ENCODER_PORT_2);
+        
+        climberTalon = new CANTalon(CLIMBER_TALON_PORT);
     }
 }

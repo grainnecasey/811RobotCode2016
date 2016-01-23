@@ -21,7 +21,7 @@ public class Drive extends Subsystem implements Config {
     SpeedController frontleft = RobotMap.drivefrontleft;
     SpeedController backleft = RobotMap.drivebackleft;
     SpeedController backright = RobotMap.drivebackright;
-    RobotDrive driveRobotDrive41 = RobotMap.driveRobotDrive41;
+    RobotDrive driveRobotDrive41 = RobotMap.driveTrain;
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
