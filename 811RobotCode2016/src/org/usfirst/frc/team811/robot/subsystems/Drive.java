@@ -12,6 +12,9 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
+
+//still needs encoder     TODO
+
 public class Drive extends Subsystem implements Config {
     Joystick joy1 = RobotMap.joystick1;
     SpeedController frontright = RobotMap.drivefrontright;

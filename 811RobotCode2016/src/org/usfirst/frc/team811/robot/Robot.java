@@ -5,9 +5,11 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.usfirst.frc.team811.robot.commands.ExampleCommand;
-import org.usfirst.frc.team811.robot.subsystems.ExampleSubsystem;
+
+import org.usfirst.frc.team811.robot.subsystems.Climber;
 import org.usfirst.frc.team811.robot.subsystems.Drive;
+import org.usfirst.frc.team811.robot.subsystems.Intake;
+import org.usfirst.frc.team811.robot.subsystems.Shooter;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -18,9 +20,14 @@ import org.usfirst.frc.team811.robot.subsystems.Drive;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-	public static OI oi;
+	public static Climber climber;
 	public static Drive drive;
+	public static Intake intake;
+	public static Shooter shooter;
+	
+	
+	public static OI oi;
+	//public static Drive drive;
 
     Command autonomousCommand;
 
@@ -30,8 +37,13 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
 		oi = new OI();
+		
+		climber = new Climber();
+		drive = new Drive();
+		intake = new Intake();
+		shooter = new Shooter();
         // instantiate the command used for the autonomous period
-        autonomousCommand = new ExampleCommand();
+        //autonomousCommand = new ExampleCommand();
     }
 	
 	public void disabledPeriodic() {

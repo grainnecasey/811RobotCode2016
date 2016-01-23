@@ -6,9 +6,9 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 
-//winch, encoder	TODO
+// 2 motors, encoder??	TODO
 
-public class Climber extends Subsystem {
+public class Shooter extends Subsystem {
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.

@@ -12,7 +12,7 @@ public class drive_w_joysticks extends Command {
 
     public drive_w_joysticks() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.exampleSubsystem);
+        requires(Robot.drive);
     }
 
     // Called just before this Command runs the first time
