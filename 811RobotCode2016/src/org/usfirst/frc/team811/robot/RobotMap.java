@@ -23,6 +23,7 @@ public class RobotMap implements Config {
     // public static int rangefinderPort = 1;
     // public static int rangefinderModule = 1;
 	public static Joystick joystick1;
+	public static Joystick joystick2;
 	
 	public static SpeedController drivefrontright;
     public static SpeedController drivefrontleft;
@@ -31,7 +32,8 @@ public class RobotMap implements Config {
     public static Encoder driveEncoder;
     public static RobotDrive driveTrain;
     
-    public static CANTalon intakeTalon;
+    public static SpeedController intakeTalon;
+    public static DigitalInput intakeLimit;
     //limit switch set in
     
     public static SpeedController shooterTalon1;
@@ -52,7 +54,8 @@ public class RobotMap implements Config {
                 drivefrontright, drivebackright);
         driveEncoder = new Encoder(DRIVE_ENCODER_PORT_1, DRIVE_ENCODER_PORT_2);
         
-        intakeTalon = new CANTalon(INTAKE_TALON_PORT);
+        intakeTalon = new Talon(INTAKE_TALON_PORT);
+        intakeLimit = new DigitalInput(INTAKE_LIMIT_PORT);
         
         shooterTalon1 = new Talon(SHOOTER_TALON_1_PORT);
         shooterTalon2 = new Talon(SHOOTER_TALON_2_PORT);
