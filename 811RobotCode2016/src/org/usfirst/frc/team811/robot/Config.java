@@ -27,6 +27,12 @@ public interface Config {
 	
 	int INTAKE_SPEED = 1;	//TODO
 	
+	int SHOOTER_SPEED = 1;	//TODO
+	double SHOOTER_WAIT_TIME = 50;		//TODO
+	double SHOOTER_END_WAIT_TIME = 50;	//TODO
+	
+	boolean CAN_SHOOT = false;
+	
 	
 	//controls
 
@@ -36,5 +42,5 @@ public interface Config {
 	int INTAKE_IN_BUTTON = 6;
 	int INTAKE_OUT_BUTTON = 7;
 	
-	boolean CAN_SHOOT = false;
+	int SHOOTER_BUTTON = 1;
 }
