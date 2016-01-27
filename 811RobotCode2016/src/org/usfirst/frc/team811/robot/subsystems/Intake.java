@@ -41,7 +41,9 @@ public class Intake extends Subsystem implements Config {
     			}
     		}
     	} else if (joy2.getRawButton(INTAKE_OUT_BUTTON)) {
-    		intakeTalon.set(-INTAKE_SPEED);
+    		if (intakeLimit.get() && !CAN_SHOOT) {
+    			intakeTalon.set(-INTAKE_SPEED);
+    		}
     	}
     	
     	
