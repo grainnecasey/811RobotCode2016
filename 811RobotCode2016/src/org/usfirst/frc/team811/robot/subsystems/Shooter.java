@@ -20,6 +20,7 @@ public class Shooter extends Subsystem implements Config {
 	
 	SpeedController shooterTalon1 = RobotMap.shooterTalon1;
 	SpeedController shooterTalon2 = RobotMap.shooterTalon2;
+	Encoder shooterEncoder = RobotMap.shooterEncoder;
 	
 	DigitalInput intakeLimit = RobotMap.intakeLimit;
 	
@@ -39,27 +40,40 @@ public class Shooter extends Subsystem implements Config {
     public void shootWJoy() {
     	
     	if (joy2.getRawButton(SHOOTER_BUTTON)) {
-    		shooting = true;
+    		shoot();
     	}
     	
-    	if (shooting) {
-    		shootingTime = System.currentTimeMillis();
-    		shooterTalon1.set(SHOOTER_SPEED);
-    		shooterTalon2.set(SHOOTER_SPEED);
-    		if (shootingTime + SHOOTER_WAIT_TIME > System.currentTimeMillis()) {
-    			//canShoot = true;	TODO
-    			if (!intakeLimit.get()) {
-    				shootingEndTime = System.currentTimeMillis();
-    			}
+    }
+    
+    public boolean isFullSpeed() {
+    	
+    	shooterEncoder.setDistancePerPulse(SHOOTER_DISTANCE_PER_PULSE);
+    	
+    	return shooterEncoder.getRate() >= SHOOTER_FULL_SPEED_RATE;
+    	
+    	//return (shootingTime + SHOOTER_WAIT_TIME > System.currentTimeMillis()) && !(shootingEndTime + SHOOTER_END_WAIT_TIME > System.currentTimeMillis());
+    }
+    
+    public void shoot() {
+    	
+    	shootingTime = System.currentTimeMillis();
+    	shooterTalon1.set(SHOOTER_SPEED);
+    	shooterTalon2.set(SHOOTER_SPEED);
+    	if (isFullSpeed()) {
+    		if (!intakeLimit.get()) {
+    			shootingEndTime = System.currentTimeMillis();
     		}
     	}
     	
-    	if (shootingEndTime + SHOOTER_END_WAIT_TIME > System.currentTimeMillis()) {
+    	
+    	if (shot()) {
     		shooterTalon1.set(0);
-    		shooterTalon1.set(0);
-    		//canShoot = false;	TODO
     	}
     	
+    }
+    
+    public boolean shot() {
+    	return shootingEndTime + SHOOTER_END_WAIT_TIME > System.currentTimeMillis();
     }
 }
 

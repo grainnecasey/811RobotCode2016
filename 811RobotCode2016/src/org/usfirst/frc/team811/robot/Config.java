@@ -25,11 +25,16 @@ public interface Config {
 	
 	//variables
 	
+	double SPEED_SCALE = 1;
+	double DRIVE_DISTANCE_PER_PULSE = 30;	//TODO
+	
 	int INTAKE_SPEED = 1;	//TODO
 	
 	int SHOOTER_SPEED = 1;	//TODO
 	double SHOOTER_WAIT_TIME = 50;		//TODO
 	double SHOOTER_END_WAIT_TIME = 50;	//TODO
+	double SHOOTER_FULL_SPEED_RATE = 20; //TODO
+	double SHOOTER_DISTANCE_PER_PULSE = 30; 	//TODO
 	
 	boolean CAN_SHOOT = false;
 	

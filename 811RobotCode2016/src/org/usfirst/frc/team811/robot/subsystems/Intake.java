@@ -1,6 +1,7 @@
 package org.usfirst.frc.team811.robot.subsystems;
 
 import org.usfirst.frc.team811.robot.Config;
+import org.usfirst.frc.team811.robot.Robot;
 import org.usfirst.frc.team811.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -36,17 +37,24 @@ public class Intake extends Subsystem implements Config {
     		if (!intakeLimit.get()) {
     			intakeTalon.set(INTAKE_SPEED);
     		} else {
-    			if (CAN_SHOOT) {
+    			if (Robot.shooter.isFullSpeed()) {
     				intakeTalon.set(INTAKE_SPEED);
     			}
     		}
     	} else if (joy2.getRawButton(INTAKE_OUT_BUTTON)) {
-    		if (intakeLimit.get() && !CAN_SHOOT) {
+    		if (intakeLimit.get() && !Robot.shooter.isFullSpeed()) {
     			intakeTalon.set(-INTAKE_SPEED);
     		}
     	}
     	
-    	
+    }
+    
+    public void intake() {
+    	intakeTalon.set(INTAKE_SPEED);
+    }
+    
+    public void stopIntake() {
+    	intakeTalon.set(0);
     }
 }
 
