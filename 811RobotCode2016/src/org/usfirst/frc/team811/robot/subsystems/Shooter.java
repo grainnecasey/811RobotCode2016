@@ -48,6 +48,7 @@ public class Shooter extends Subsystem implements Config {
     public boolean isFullSpeed() {
     	
     	shooterEncoder.setDistancePerPulse(SHOOTER_DISTANCE_PER_PULSE);
+    	//1 revolution = about 260 
     	
     	return shooterEncoder.getRate() >= SHOOTER_FULL_SPEED_RATE;
     	
@@ -69,6 +70,14 @@ public class Shooter extends Subsystem implements Config {
     	if (shot()) {
     		shooterTalon1.set(0);
     	}
+    	
+    }
+    
+    public void autoShoot() {
+    	
+    	//get distance from camera
+    	
+    	//insert equation thing
     	
     }
     
