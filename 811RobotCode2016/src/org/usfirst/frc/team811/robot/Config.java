@@ -22,6 +22,8 @@ public interface Config {
 	
 	int CLIMBER_TALON_PORT = 1;	//TODO
 	
+	int GYRO_CHANNEL = 1; //TODO
+	
 	
 	//variables
 	
@@ -48,4 +50,6 @@ public interface Config {
 	int INTAKE_OUT_BUTTON = 7;
 	
 	int SHOOTER_BUTTON = 1;
+	
+	int CLIMBER_AXIS = 5;
 }

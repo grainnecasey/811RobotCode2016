@@ -3,6 +3,7 @@ package org.usfirst.frc.team811.robot;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.*;
 
@@ -31,6 +32,7 @@ public class RobotMap implements Config {
     public static SpeedController drivebackright;
     public static Encoder driveEncoder;
     public static RobotDrive driveTrain;
+    public static AnalogGyro driveGyro;
     
     public static SpeedController intakeTalon;
     public static DigitalInput intakeLimit;
@@ -53,6 +55,7 @@ public class RobotMap implements Config {
         driveTrain = new RobotDrive(drivefrontleft, drivebackleft,
                 drivefrontright, drivebackright);
         driveEncoder = new Encoder(DRIVE_ENCODER_PORT_1, DRIVE_ENCODER_PORT_2);
+        driveGyro = new AnalogGyro(GYRO_CHANNEL);
         
         intakeTalon = new Talon(INTAKE_TALON_PORT);
         intakeLimit = new DigitalInput(INTAKE_LIMIT_PORT);
