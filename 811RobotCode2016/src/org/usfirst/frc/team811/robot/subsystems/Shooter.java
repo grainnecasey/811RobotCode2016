@@ -6,6 +6,7 @@ import org.usfirst.frc.team811.robot.RobotMap;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.*;
 
 /**
@@ -69,6 +70,7 @@ public class Shooter extends Subsystem implements Config {
     	
     	if (shot()) {
     		shooterTalon1.set(0);
+    		shooterTalon2.set(0);
     	}
     	
     }
@@ -78,6 +80,42 @@ public class Shooter extends Subsystem implements Config {
     	//get distance from camera
     	
     	//insert equation thing
+    	
+    	double distance = 116 * .0254;
+    	double lateralVelocity = 12.38394617 * distance - 17.05999456; //meters per second
+    	
+    	//lateral velocity = 12.38394617 * distance - 17.05999456
+    	
+    	double time = Math.pow(distance/lateralVelocity, 2);
+    	
+    	double speed;
+    	
+    	double x = 50 * 3.1415926535/180; //angle in radians
+    	
+    	double sinDeg = Math.sin(x);
+    	
+    	double radius = .0762; 	//.046736
+    	
+    	speed = ((2.4638 + (4.9 * time))/((distance/lateralVelocity) * sinDeg * 2 * radius * 3.1415926535)) * 60;
+    	SmartDashboard.putDouble("speed", speed);
+    	
+    	double rps = speed/60;
+    	SmartDashboard.putDouble("rps", rps);
+    	
+    	double speedScale = rps/70;
+    	SmartDashboard.putDouble("speedScale", speedScale);
+    	
+    	shooterTalon1.set(speedScale);
+    	shooterTalon2.set(speedScale);
+    	
+    	if (!intakeLimit.get()) {
+			shootingEndTime = System.currentTimeMillis();
+		}
+    	
+    	if (shot()) {
+    		shooterTalon1.set(0);
+    		shooterTalon2.set(0);
+    	}
     	
     }
     
