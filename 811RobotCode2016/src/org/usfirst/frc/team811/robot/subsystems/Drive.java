@@ -25,15 +25,31 @@ public class Drive extends Subsystem implements Config {
     SpeedController backright = RobotMap.drivebackright;
     RobotDrive driveTrain = RobotMap.driveTrain;
     Encoder driveEncoder = RobotMap.driveEncoder;
+    //Gyro driveGyro 
     
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    public void driveWithJoy()
-    {
-    	double moveVal = joy1.getRawAxis(FORWARD_DRIVE_AXIS);
-    	double turnVal = joy1.getRawAxis(TURN_DRIVE_AXIS);
+    public void driveWithJoy() {
+    	
+    	double moveVal;
+    	double turnVal;
+    	
+    	if ((joy1.getRawAxis(FORWARD_DRIVE_AXIS) < .2) && (joy1.getRawAxis(FORWARD_DRIVE_AXIS) > -.2)) { 
+    		moveVal = 0;
+    	} else {
+    		moveVal = joy1.getRawAxis(FORWARD_DRIVE_AXIS);
+    	}
+    	
+    	if ((joy1.getRawAxis(TURN_DRIVE_AXIS) < .2) && (joy1.getRawAxis(TURN_DRIVE_AXIS) > -.2)) { 
+    		turnVal = 0;
+    	} else {
+    		turnVal = joy1.getRawAxis(FORWARD_DRIVE_AXIS);
+    	}
+    	
     	driveTrain.arcadeDrive(moveVal * SPEED_SCALE, turnVal);
+    	
+    	
     	/* double leftVal = joy1.getRawAxis(FORWARD_DRIVE_AXIS); in case Joe wants tankdrive
     	 * double rightVal = joy1.getRawAxis(TURN_DRIVE_AXIS);
     	 * driveRobotDrive41.tankDrive(leftVal, rightVal);
