@@ -6,10 +6,12 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
+import org.opencv.core.Core;
 import org.usfirst.frc.team811.robot.subsystems.Climber;
 import org.usfirst.frc.team811.robot.subsystems.Drive;
 import org.usfirst.frc.team811.robot.subsystems.Intake;
 import org.usfirst.frc.team811.robot.subsystems.Shooter;
+import org.usfirst.frc.team811.robot.subsystems.VisionTracking;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -24,6 +26,7 @@ public class Robot extends IterativeRobot {
 	public static Drive drive;
 	public static Intake intake;
 	public static Shooter shooter;
+	public static VisionTracking tracker;
 	
 	
 	public static OI oi;
@@ -42,6 +45,7 @@ public class Robot extends IterativeRobot {
 		drive = new Drive();
 		intake = new Intake();
 		shooter = new Shooter();
+		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();
     }
