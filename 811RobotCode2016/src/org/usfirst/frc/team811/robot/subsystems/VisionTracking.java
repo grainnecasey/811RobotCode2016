@@ -1,7 +1,7 @@
 package org.usfirst.frc.team811.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import javafx.scene.image.Image;
+//import javafx.scene.image.Image;
 
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
@@ -21,9 +21,8 @@ public class VisionTracking extends Subsystem
 	private VideoCapture capture;
 	private boolean cameraActive;
 
-	private Image grabFrame()
+	private Mat grabFrame()
 	{
-		Image imageToShow = null;
 		Mat frame = new Mat();
 		// Mat frame = new Mat(frame1.getHeight(), frame1.getWidth(),
 		// CvType.CV_8UC3);
@@ -40,13 +39,12 @@ public class VisionTracking extends Subsystem
 				Imgproc.cvtColor(frame, frame, Imgproc.COLOR_BGR2HSV);
 				Core.inRange(frame, hsv_min, hsv_max, frame);
 				Imgproc.GaussianBlur(frame, frame, new Size(3, 3), 3);
-				imageToShow = mat2Image(frame);
 			} catch (Exception e)
 			{
 				System.err.println("Exception during the frame elaboration: " + e);
 			}
 		}
-		return imageToShow;
+		return frame;
 	}
 
 	private Mat doCanny(Mat frame)
@@ -62,12 +60,12 @@ public class VisionTracking extends Subsystem
 		return frame;
 	}
 
-	private Image mat2Image(Mat frame)
+	/*private Image mat2Image(Mat frame)
 	{
 		MatOfByte buffer = new MatOfByte();
 		Imgcodecs.imencode(".png", frame, buffer);
 		return new Image(new ByteArrayInputStream(buffer.toArray()));
-	}
+	}*/
 
 	public void initDefaultCommand()
 	{
@@ -81,7 +79,7 @@ public class VisionTracking extends Subsystem
 				@Override
 				public void run()
 				{
-					Image imageToShow = grabFrame();
+					Mat imageToShow = grabFrame();
 					// currentFrame.setImage(imageToShow);
 
 				}
