@@ -43,6 +43,7 @@ public class RobotMap implements Config {
     public static Encoder shooterEncoder;
     
     public static CANTalon climberTalon;
+    public static Encoder climberEncoder;
     //encoder set in
     
     

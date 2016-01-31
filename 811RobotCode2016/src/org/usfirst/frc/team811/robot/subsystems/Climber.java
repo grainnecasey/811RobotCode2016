@@ -19,6 +19,14 @@ public class Climber extends Subsystem implements Config {
 	
 	CANTalon climberTalon = RobotMap.climberTalon;
 	Joystick joy2 = RobotMap.joystick2;
+	
+	public Climber() {
+		climberTalon.changeControlMode(CANTalon.TalonControlMode.Position); //makes it so will go to position when you use .set()
+		climberTalon.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder); //sets device so knows what it's looking for
+		climberTalon.setPID(1.0, 0.0, 0.0); //numbers are temporary
+		
+	}
+
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -27,6 +35,8 @@ public class Climber extends Subsystem implements Config {
     
     public void climbWJoy() {
     	
+    	climberTalon.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
+    	
     	double input;
     	
     	if ((joy2.getRawAxis(CLIMBER_AXIS) < .2) && (joy2.getRawAxis(CLIMBER_AXIS) > -.2)) {
@@ -34,6 +44,8 @@ public class Climber extends Subsystem implements Config {
     	} else {
     		input = joy2.getRawAxis(CLIMBER_AXIS);
     	}
+    	
+    	climberTalon.set(input);
     	
     }
 }
