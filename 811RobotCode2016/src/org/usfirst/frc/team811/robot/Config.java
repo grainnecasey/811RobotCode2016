@@ -20,7 +20,8 @@ public interface Config {
 	int SHOOTER_ENCODER_PORT_1 = 1;	//TODO
 	int SHOOTER_ENCODER_PORT_2 = 2;	//TODO
 	
-	int CLIMBER_TALON_PORT = 1;	//TODO
+	int CLIMBER_TALON_1_PORT = 1;	//TODO
+	int CLIMBER_TALON_2_PORT = 2;   //TODO
 	
 	int GYRO_CHANNEL = 1; //TODO
 	

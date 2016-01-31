@@ -42,7 +42,8 @@ public class RobotMap implements Config {
     public static SpeedController shooterTalon2;
     public static Encoder shooterEncoder;
     
-    public static CANTalon climberTalon;
+    public static CANTalon climberTalon1;
+    public static CANTalon climberTalon2;
     public static Encoder climberEncoder;
     //encoder set in
     
@@ -65,6 +66,7 @@ public class RobotMap implements Config {
         shooterTalon2 = new Talon(SHOOTER_TALON_2_PORT);
         shooterEncoder = new Encoder(SHOOTER_ENCODER_PORT_1, SHOOTER_ENCODER_PORT_2);
         
-        climberTalon = new CANTalon(CLIMBER_TALON_PORT);
+        climberTalon1 = new CANTalon(CLIMBER_TALON_1_PORT);
+        climberTalon2 = new CANTalon(CLIMBER_TALON_2_PORT);
     }
 }
