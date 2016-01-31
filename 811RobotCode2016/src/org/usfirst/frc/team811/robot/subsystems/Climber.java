@@ -24,6 +24,8 @@ public class Climber extends Subsystem implements Config {
 		climberTalon.changeControlMode(CANTalon.TalonControlMode.Position); //makes it so will go to position when you use .set()
 		climberTalon.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder); //sets device so knows what it's looking for
 		climberTalon.setPID(1.0, 0.0, 0.0); //numbers are temporary
+		climberTalon.setForwardSoftLimit(CLIMBER_FORWARD_LIMIT);
+		climberTalon.setReverseSoftLimit(CLIMBER_REVERSE_LIMIT);
 		
 	}
 
@@ -46,6 +48,26 @@ public class Climber extends Subsystem implements Config {
     	}
     	
     	climberTalon.set(input);
+    	
+    }
+    
+    public void climbUp() {
+    	
+    	climberTalon.changeControlMode(CANTalon.TalonControlMode.Position);
+    	
+    	climberTalon.set(CLIMBER_UP_POSITION);
+    }
+    
+    public void climbDown() {
+    	
+    	climberTalon.changeControlMode(CANTalon.TalonControlMode.Position);
+    	
+    	climberTalon.set(CLIMBER_DOWN_POSITION);
+    }
+    
+    public void reset() {
+    	
+    	climberTalon.setPosition(0);
     	
     }
 }

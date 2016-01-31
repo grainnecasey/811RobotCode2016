@@ -40,6 +40,12 @@ public interface Config {
 	
 	boolean CAN_SHOOT = false;
 	
+	int CLIMBER_UP_POSITION = 500; 	//TODO
+	int CLIMBER_DOWN_POSITION = 0;	//TODO
+	int CLIMBER_FORWARD_LIMIT = 700; 	//TODO
+	int CLIMBER_REVERSE_LIMIT = 0; 	//TODO
+	int CLIMBER_DIFFERENCE_VALUE = 20; 	//TODO
+	
 	
 	//controls
 
