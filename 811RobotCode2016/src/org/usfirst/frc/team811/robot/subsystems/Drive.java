@@ -5,6 +5,7 @@ import org.usfirst.frc.team811.robot.RobotMap;
 import org.usfirst.frc.team811.robot.commands.drive_w_joysticks;
 import org.usfirst.frc.team811.robot.Config;
 
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -25,7 +26,7 @@ public class Drive extends Subsystem implements Config {
     SpeedController backright = RobotMap.drivebackright;
     RobotDrive driveTrain = RobotMap.driveTrain;
     Encoder driveEncoder = RobotMap.driveEncoder;
-    //Gyro driveGyro 
+    AnalogGyro driveGyro = RobotMap.driveGyro;
     
     
     // Put methods for controlling this subsystem
@@ -62,11 +63,17 @@ public class Drive extends Subsystem implements Config {
     }
     
     public void driveAuto(double driveDistance) {		//TODO drive distance!
+    	double turnVal = driveGyro.getAngle();
+    	
     	driveEncoder.setDistancePerPulse(DRIVE_DISTANCE_PER_PULSE);
     	
     	while (driveEncoder.getDistance() <= driveDistance) {
-    		driveTrain.arcadeDrive(SPEED_SCALE, 0);
+    		driveTrain.arcadeDrive(SPEED_SCALE, turnVal * -1);
     	}
+    }
+    
+    public void gyroReset() {
+    	driveGyro.reset();
     }
 }
 
