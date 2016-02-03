@@ -58,5 +58,6 @@ public interface Config {
 	
 	int SHOOTER_BUTTON = 1;
 	
-	int CLIMBER_AXIS = 5;
+	int CLIMBER_UP_BUTTON = 3;
+	int CLIMBER_DOWN_BUTTON = 4;
 }

@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class climb_down extends Command {
+public class climb_down extends Command implements Config {
 
     public climb_down() {
         // Use requires() here to declare subsystem dependencies
@@ -28,7 +28,7 @@ public class climb_down extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return //Going to be added at a later date
+    	return (timeSinceInitialized() > 0.25) && (Math.abs(RobotMap.climberTalon2.getClosedLoopError()) < CLIMBER_DIFFERENCE_VALUE);
     }
 
     // Called once after isFinished returns true
