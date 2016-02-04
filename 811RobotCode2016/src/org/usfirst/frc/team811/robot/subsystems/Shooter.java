@@ -5,7 +5,9 @@ import org.usfirst.frc.team811.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.*;
 
@@ -22,6 +24,7 @@ public class Shooter extends Subsystem implements Config {
 	SpeedController shooterTalon1 = RobotMap.shooterTalon1;
 	SpeedController shooterTalon2 = RobotMap.shooterTalon2;
 	Encoder shooterEncoder = RobotMap.shooterEncoder;
+	NetworkTable visionTable = RobotMap.visionTable;
 	
 	DigitalInput intakeLimit = RobotMap.intakeLimit;
 	
@@ -117,6 +120,23 @@ public class Shooter extends Subsystem implements Config {
     		shooterTalon2.set(0);
     	}
     	
+    }
+    
+    public void aim() {
+    	double centerXVal;
+    	
+    	double[] defaultValue = new double[0];
+		while (true) {
+			 double[] centerXs = RobotMap.visionTable.getNumberArray("centerX", defaultValue);
+			 System.out.print("areas: ");
+			 for (double centerX : centerXs) {
+				 System.out.print(centerX + " ");
+				 centerXVal = centerX;
+			 }
+			 System.out.println("");
+			 Timer.delay(1);
+		}
+		
     }
     
     public boolean shot() {

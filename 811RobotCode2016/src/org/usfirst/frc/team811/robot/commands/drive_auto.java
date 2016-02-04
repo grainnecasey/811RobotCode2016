@@ -8,11 +8,14 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class drive_auto extends Command {
+	
+	double distance;
 
-    public drive_auto() {
+    public drive_auto(double inches) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.drive);
+    	distance = inches;
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +24,7 @@ public class drive_auto extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drive.driveAuto(76.75);
+    	Robot.drive.driveAuto(distance);
     }
 
     // Make this return true when this Command no longer needs to run execute()
