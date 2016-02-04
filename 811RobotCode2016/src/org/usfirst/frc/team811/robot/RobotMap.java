@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.*;
 
 /**
@@ -45,6 +46,8 @@ public class RobotMap implements Config {
     public static CANTalon climberTalon1;
     public static CANTalon climberTalon2;
     public static Encoder climberEncoder;
+    
+    public static NetworkTable visionTable;
     //encoder set in
     
     
@@ -68,5 +71,7 @@ public class RobotMap implements Config {
         
         climberTalon1 = new CANTalon(CLIMBER_TALON_1_PORT);
         climberTalon2 = new CANTalon(CLIMBER_TALON_2_PORT);
+        
+        visionTable = NetworkTable.getTable("GRIP/myContoursReport");
     }
 }
