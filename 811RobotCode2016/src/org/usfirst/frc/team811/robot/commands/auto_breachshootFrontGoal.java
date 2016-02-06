@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class autonomous_breach extends CommandGroup {
+public class auto_breachshootFrontGoal extends CommandGroup {
     
-    public  autonomous_breach() {
+    public  auto_breachshootFrontGoal() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

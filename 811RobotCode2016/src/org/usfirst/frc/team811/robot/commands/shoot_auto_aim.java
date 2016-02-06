@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class autonomous_breachshoot extends CommandGroup {
+public class shoot_auto_aim extends CommandGroup {
     
-    public  autonomous_breachshoot() {
+    public  shoot_auto_aim() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
