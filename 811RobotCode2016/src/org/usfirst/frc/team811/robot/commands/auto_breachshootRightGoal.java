@@ -24,5 +24,10 @@ public class auto_breachshootRightGoal extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+    	
+    	addSequential(new drive_auto(106)); 	//TODO distance
+    	addSequential(new drive_turn_auto(30));	//TODO gyro val
+    	addSequential(new shoot_auto_aim());
+    	addSequential(new shoot());
     }
 }

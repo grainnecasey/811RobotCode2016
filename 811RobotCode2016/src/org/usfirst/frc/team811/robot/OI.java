@@ -1,6 +1,9 @@
 package org.usfirst.frc.team811.robot;
 
+import org.usfirst.frc.team811.robot.commands.*;
+
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -33,5 +36,30 @@ public class OI {
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
+	
+	public OI() {
+		SmartDashboard.putData("auto_breach", new auto_breach());
+		SmartDashboard.putData("auto_breachshootFrontGoal", new auto_breachshootFrontGoal());
+		SmartDashboard.putData("auto_breachshootLeftGoal", new auto_breachshootLeftGoal());
+		SmartDashboard.putData("auto_breachshootRightGoal", new auto_breachshootRightGoal());
+		SmartDashboard.putData("auto_reach", new auto_reach());
+		
+		SmartDashboard.putData("climb_down", new climb_down());
+		SmartDashboard.putData("climb_up", new climb_up());
+		
+		SmartDashboard.putData("drive_auto(12)", new drive_auto(12));
+		SmartDashboard.putData("drive_turn_auto(30)", new drive_turn_auto(30));
+		SmartDashboard.putData("drive_w_joysticks", new drive_w_joysticks());
+		
+		SmartDashboard.putData("gyro_reset", new gyro_reset());
+		
+		SmartDashboard.putData("intake_w_joysticks", new intake_w_joysticks());
+		SmartDashboard.putData("intake", new intake());
+		
+		SmartDashboard.putData("shoot_auto_aim", new shoot_auto_aim());
+		SmartDashboard.putData("shoot_w_joysticks", new shoot_w_joysticks());
+		SmartDashboard.putData("shoot", new shoot());
+		
+	}
 }
 

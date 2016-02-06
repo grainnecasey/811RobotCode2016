@@ -4,19 +4,19 @@ public interface Config {
 	
 	//ports
 	
-	int FRONT_RIGHT_PORT = 1;	//TODO
-	int FRONT_LEFT_PORT = 2;	//TODO
-	int BACK_RIGHT_PORT = 3;	//TODO
-	int BACK_LEFT_PORT = 4;		//TODO
+	int FRONT_RIGHT_PORT = 3;	
+	int FRONT_LEFT_PORT = 1;	
+	int BACK_RIGHT_PORT = 4;	
+	int BACK_LEFT_PORT = 2;		
 	
 	int DRIVE_ENCODER_PORT_1 = 1;	//TODO
 	int DRIVE_ENCODER_PORT_2 = 2; 	//TODO
 	
-	int INTAKE_TALON_PORT = 1;	//TODO
+	int INTAKE_TALON_PORT = 0;
 	int INTAKE_LIMIT_PORT = 1; 	//TODO
 	
-	int SHOOTER_TALON_1_PORT = 5; 	//TODO
-	int SHOOTER_TALON_2_PORT = 6;	//TODO
+	int SHOOTER_TALON_1_PORT = 5; 	
+	int SHOOTER_TALON_2_PORT = 6;	
 	int SHOOTER_ENCODER_PORT_1 = 1;	//TODO
 	int SHOOTER_ENCODER_PORT_2 = 2;	//TODO
 	
@@ -30,6 +30,7 @@ public interface Config {
 	
 	double SPEED_SCALE = 1;
 	double DRIVE_DISTANCE_PER_PULSE = 260;	//TODO
+	double GYRO_DIFFERENCE_VALUE = 10; //TODO
 	
 	int INTAKE_SPEED = 1;	//TODO
 	

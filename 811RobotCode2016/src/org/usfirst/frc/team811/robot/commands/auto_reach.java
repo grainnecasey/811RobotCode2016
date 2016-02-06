@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class auto_breachshoootLeftGoal extends CommandGroup {
+public class auto_reach extends CommandGroup {
     
-    public  auto_breachshoootLeftGoal() {
+    public  auto_reach() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -24,5 +24,7 @@ public class auto_breachshoootLeftGoal extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+    	
+    	addSequential(new drive_auto(76.75));
     }
 }

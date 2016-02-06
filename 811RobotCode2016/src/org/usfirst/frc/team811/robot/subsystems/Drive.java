@@ -72,6 +72,21 @@ public class Drive extends Subsystem implements Config {
     	}
     }
     
+    public void turnAuto(double gyroTurnVal) {
+    	int turnVal;
+    	if (gyroTurnVal > 0) {
+    		turnVal = 1;
+    	} else if (gyroTurnVal < 0){
+    		turnVal = -1;
+    	} else {
+    		turnVal = 0;
+    	}
+    	
+    	while ((driveGyro.getAngle() < gyroTurnVal - GYRO_DIFFERENCE_VALUE) || (driveGyro.getAngle() > gyroTurnVal + GYRO_DIFFERENCE_VALUE)) {
+    		driveTrain.arcadeDrive(0, turnVal);
+    	}
+    }
+    
     public void gyroReset() {
     	driveGyro.reset();
     }

@@ -1,5 +1,6 @@
 package org.usfirst.frc.team811.robot.commands;
 
+import org.usfirst.frc.team811.robot.Config;
 import org.usfirst.frc.team811.robot.Robot;
 import org.usfirst.frc.team811.robot.RobotMap;
 
@@ -8,12 +9,15 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class shoot extends Command {
+public class drive_turn_auto extends Command implements Config {
+	
+	double turnVal;
 
-    public shoot() {
+    public drive_turn_auto(double gyroTurnVal) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.shooter);
+    	turnVal = gyroTurnVal;
+    	requires(Robot.drive);
     }
 
     // Called just before this Command runs the first time
@@ -22,18 +26,16 @@ public class shoot extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooter.autoShoot();
+    	Robot.drive.turnAuto(turnVal);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.shooter.shot();
+        return (RobotMap.driveGyro.getAngle() < turnVal - GYRO_DIFFERENCE_VALUE) || (RobotMap.driveGyro.getAngle() > turnVal + GYRO_DIFFERENCE_VALUE);
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	RobotMap.shooterTalon1.set(0);
-		RobotMap.shooterTalon2.set(0);
     }
 
     // Called when another command which requires one or more of the same
