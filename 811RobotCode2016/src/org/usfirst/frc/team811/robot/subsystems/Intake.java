@@ -56,5 +56,9 @@ public class Intake extends Subsystem implements Config {
     public void stopIntake() {
     	intakeTalon.set(0);
     }
+    
+    public void intakeBack() {
+    	intakeTalon.set(-INTAKE_SPEED);
+    }
 }
 
