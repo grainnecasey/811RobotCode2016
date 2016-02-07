@@ -9,15 +9,21 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.*;
-import org.opencv.core.*;
-import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.imgproc.Imgproc;
-import org.opencv.videoio.VideoCapture;
+//import org.opencv.core.*;
+//import org.opencv.imgcodecs.Imgcodecs;
+//import org.opencv.imgproc.Imgproc;
+//import org.opencv.videoio.VideoCapture;
 import javax.imageio.ImageIO;
 
 public class VisionTracking extends Subsystem
 {
-	private ScheduledExecutorService timer;
+
+	@Override
+	protected void initDefaultCommand() {
+		// TODO Auto-generated method stub
+		
+	}
+	/*private ScheduledExecutorService timer;
 	private VideoCapture capture;
 	private boolean cameraActive;
 
@@ -65,7 +71,7 @@ public class VisionTracking extends Subsystem
 		MatOfByte buffer = new MatOfByte();
 		Imgcodecs.imencode(".png", frame, buffer);
 		return new Image(new ByteArrayInputStream(buffer.toArray()));
-	}*/
+	}
 
 	public void initDefaultCommand()
 	{
@@ -90,5 +96,5 @@ public class VisionTracking extends Subsystem
 		{
 			// System.err.println("Cannot connect to camera.");
 		}
-	}
+	}*/
 }

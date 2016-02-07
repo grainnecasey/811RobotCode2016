@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.opencv.core.Core;
+//import org.opencv.core.Core;
 import org.usfirst.frc.team811.robot.commands.*;
 import org.usfirst.frc.team811.robot.subsystems.*;
 
@@ -30,6 +30,7 @@ public class Robot extends IterativeRobot {
 	
 	
 	public static OI oi;
+	public static RobotMap robotMap;
 	//public static Drive drive;
 
     Command autonomousCommand;
@@ -40,13 +41,17 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-		oi = new OI();
+		
+    	robotMap = new RobotMap();
+    	robotMap.init();
 		
 		climber = new Climber();
 		drive = new Drive();
 		intake = new Intake();
 		shooter = new Shooter();
-		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+		
+		oi = new OI();
+		//System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 		
 		 autoChooser = new SendableChooser();
 	     autoChooser.addDefault("reach defense", new auto_reach());

@@ -52,7 +52,7 @@ public class RobotMap implements Config {
     //encoder set in
     
     
-    public static void init() {
+    public void init() {
     	
     	drivefrontright = new Talon(FRONT_RIGHT_PORT);
         drivefrontleft = new Talon(FRONT_LEFT_PORT);
