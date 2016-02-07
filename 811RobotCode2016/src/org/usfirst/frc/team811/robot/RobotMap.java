@@ -34,6 +34,7 @@ public class RobotMap implements Config {
     public static Encoder driveEncoder;
     public static RobotDrive driveTrain;
     public static AnalogGyro driveGyro;
+    public static PIDController pid;
     
     public static SpeedController intakeTalon;
     public static DigitalInput intakeLimit;

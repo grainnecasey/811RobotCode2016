@@ -6,13 +6,12 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.opencv.core.Core;
-import org.usfirst.frc.team811.robot.subsystems.Climber;
-import org.usfirst.frc.team811.robot.subsystems.Drive;
-import org.usfirst.frc.team811.robot.subsystems.Intake;
-import org.usfirst.frc.team811.robot.subsystems.Shooter;
-import org.usfirst.frc.team811.robot.subsystems.VisionTracking;
+import org.usfirst.frc.team811.robot.commands.*;
+import org.usfirst.frc.team811.robot.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -34,6 +33,7 @@ public class Robot extends IterativeRobot {
 	//public static Drive drive;
 
     Command autonomousCommand;
+    SendableChooser autoChooser;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -48,10 +48,13 @@ public class Robot extends IterativeRobot {
 		shooter = new Shooter();
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 		
-		
-		
-        // instantiate the command used for the autonomous period
-        //autonomousCommand = new ExampleCommand();
+		 autoChooser = new SendableChooser();
+	     autoChooser.addDefault("reach defense", new auto_reach());
+	     autoChooser.addObject("breach defense", new auto_breach());
+	     autoChooser.addObject("breach shoot front goal", new auto_breachshootFrontGoal());
+	     autoChooser.addObject("breach shoot left goal", new auto_breachshootLeftGoal());
+	     autoChooser.addObject("breach shoot right goal", new auto_breachshootRightGoal());
+	     SmartDashboard.putData("Auto Mode", autoChooser);
     }
 	
 	public void disabledPeriodic() {
@@ -60,7 +63,8 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-        if (autonomousCommand != null) autonomousCommand.start();
+    	autonomousCommand = (Command) autoChooser.getSelected();
+		autonomousCommand.start();
     }
 
     /**
@@ -91,6 +95,12 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        
+        SmartDashboard.putNumber("gyro value", RobotMap.driveGyro.getAngle());
+        SmartDashboard.putNumber("drive encoder", RobotMap.driveEncoder.getDistance());
+        SmartDashboard.putBoolean("intake limit switch", RobotMap.intakeLimit.get());
+        SmartDashboard.putNumber("shooter encoder rate", RobotMap.shooterEncoder.getRate());
+        
     }
     
     /**

@@ -29,7 +29,7 @@ public interface Config {
 	//variables
 	
 	double SPEED_SCALE = 1;
-	double DRIVE_DISTANCE_PER_PULSE = 260;	//TODO
+	double DRIVE_DISTANCE_PER_PULSE = 1/14.5;	//TODO
 	double GYRO_DIFFERENCE_VALUE = 10; //TODO
 	
 	int INTAKE_SPEED = 1;	//TODO
@@ -51,14 +51,15 @@ public interface Config {
 	
 	//controls
 
-	int FORWARD_DRIVE_AXIS = 1;	//TODO
-	int TURN_DRIVE_AXIS = 3; 	//TODO
+	int FORWARD_DRIVE_AXIS = 2;	
+	int TURN_DRIVE_AXIS = 4; 	
 	
-	int INTAKE_IN_BUTTON = 6;
-	int INTAKE_OUT_BUTTON = 7;
+	int INTAKE_IN_BUTTON = 1;
+	int INTAKE_OUT_BUTTON = 2;
+	int INTAKE_STOP_BUTTON = 7;
 	
-	int SHOOTER_BUTTON = 1;
+	int SHOOTER_BUTTON = 3;
 	
-	int CLIMBER_UP_BUTTON = 3;
-	int CLIMBER_DOWN_BUTTON = 4;
+	int CLIMBER_UP_BUTTON = 5;
+	int CLIMBER_DOWN_BUTTON = 6;
 }

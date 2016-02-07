@@ -32,7 +32,7 @@ public class Intake extends Subsystem implements Config {
     }
     
     public void intakeJoyControl() {
-    	
+    	/*
     	if (joy2.getRawButton(INTAKE_IN_BUTTON)) {
     		if (!intakeLimit.get()) {
     			intakeTalon.set(INTAKE_SPEED);
@@ -46,6 +46,7 @@ public class Intake extends Subsystem implements Config {
     			intakeTalon.set(-INTAKE_SPEED);
     		}
     	}
+    	*/
     	
     }
     
