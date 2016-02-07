@@ -63,6 +63,9 @@ public class OI implements Config {
 		climber_down = new JoystickButton(RobotMap.joystick2, CLIMBER_DOWN_BUTTON);
 		climber_down.whenPressed(new climb_down());
 		
+		gyro_reset = new JoystickButton(RobotMap.joystick1, GYRO_RESET_BUTTON);
+		gyro_reset.whenPressed(new gyro_reset());
+		
 		SmartDashboard.putData("auto_breach", new auto_breach());
 		SmartDashboard.putData("auto_breachshootFrontGoal", new auto_breachshootFrontGoal());
 		SmartDashboard.putData("auto_breachshootLeftGoal", new auto_breachshootLeftGoal());
