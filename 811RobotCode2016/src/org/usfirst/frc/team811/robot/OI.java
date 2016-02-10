@@ -44,6 +44,7 @@ public class OI implements Config {
 	public JoystickButton intake_out;
 	public JoystickButton intake_stop;
 	public JoystickButton shoot;
+	public JoystickButton stopShoot;
 	public JoystickButton climber_up;
 	public JoystickButton climber_down;
 	public JoystickButton gyro_reset;
@@ -59,6 +60,8 @@ public class OI implements Config {
 		
 		shoot = new JoystickButton(RobotMap.joystick2, SHOOTER_BUTTON);
 		shoot.whenPressed(new shoot_aimshoot());
+		stopShoot = new JoystickButton(RobotMap.joystick2, 4);
+		stopShoot.whenPressed(new shoot_stop());
 		
 		climber_up = new JoystickButton(RobotMap.joystick2, CLIMBER_UP_BUTTON);
 		climber_up.whenPressed(new climb_up());

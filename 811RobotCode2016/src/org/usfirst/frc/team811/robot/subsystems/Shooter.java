@@ -62,8 +62,8 @@ public class Shooter extends Subsystem implements Config {
     public void shoot() {
     	
     	shootingTime = System.currentTimeMillis();
-    	shooterTalon1.set(SHOOTER_SPEED);
-    	shooterTalon2.set(SHOOTER_SPEED);
+    	shooterTalon1.set(-SHOOTER_SPEED);
+    	shooterTalon2.set(-SHOOTER_SPEED);
     	if (isFullSpeed()) {
     		if (!intakeLimit.get()) {
     			shootingEndTime = System.currentTimeMillis();
@@ -108,8 +108,8 @@ public class Shooter extends Subsystem implements Config {
     	double speedScale = rps/70;
     	SmartDashboard.putDouble("speedScale", speedScale);
     	
-    	shooterTalon1.set(speedScale);
-    	shooterTalon2.set(speedScale);
+    	shooterTalon1.set(-speedScale);
+    	shooterTalon2.set(-speedScale);
     	
     	if (!intakeLimit.get()) {
 			shootingEndTime = System.currentTimeMillis();
@@ -120,6 +120,11 @@ public class Shooter extends Subsystem implements Config {
     		shooterTalon2.set(0);
     	}
     	
+    }
+    
+    public void stopShooter() {
+    	shooterTalon1.set(0);
+    	shooterTalon2.set(0);
     }
     
     public void aim() {
