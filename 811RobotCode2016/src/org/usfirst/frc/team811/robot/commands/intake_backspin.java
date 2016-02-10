@@ -28,10 +28,10 @@ public class intake_backspin extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return ((!RobotMap.intakeLimit.get()) && (isTimedOut()));
+        return ((isTimedOut()));
     }
 
-    // Called once after isFinished returns true
+    // Called once after isFin 99ished returns true
     protected void end() {
     	Robot.intake.stopIntake();
     }

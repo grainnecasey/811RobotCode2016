@@ -27,7 +27,7 @@ public class intake extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return RobotMap.intakeLimit.get();
+        return !RobotMap.intakeLimit.get();
     }
 
     // Called once after isFinished returns true

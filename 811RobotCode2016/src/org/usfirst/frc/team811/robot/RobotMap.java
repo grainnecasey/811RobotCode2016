@@ -74,5 +74,7 @@ public class RobotMap implements Config {
         climberTalon2 = new CANTalon(CLIMBER_TALON_2_PORT);
         
         visionTable = NetworkTable.getTable("GRIP/myContoursReport");
+        joystick1 = new Joystick(1);
+        joystick2 = new Joystick(2);
     }
 }

@@ -28,7 +28,7 @@ public interface Config {
 	
 	//variables
 	
-	double SPEED_SCALE = 1;
+	double SPEED_SCALE = 0.75;
 	double DRIVE_DISTANCE_PER_PULSE = 1/14.5;	//TODO
 	double GYRO_DIFFERENCE_VALUE = 10; //TODO
 	
@@ -51,7 +51,7 @@ public interface Config {
 	
 	//controls
 
-	int FORWARD_DRIVE_AXIS = 2;	
+	int FORWARD_DRIVE_AXIS = 1;	
 	int TURN_DRIVE_AXIS = 4; 	
 	
 	int INTAKE_IN_BUTTON = 1;

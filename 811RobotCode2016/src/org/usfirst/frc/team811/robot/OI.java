@@ -1,7 +1,9 @@
 package org.usfirst.frc.team811.robot;
 
 import org.usfirst.frc.team811.robot.commands.*;
+import org.usfirst.frc.team811.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -84,7 +86,7 @@ public class OI implements Config {
 		SmartDashboard.putData("shoot_auto_aim", new shoot_auto_aim());
 		SmartDashboard.putData("shoot_w_joysticks", new shoot_w_joysticks());
 		SmartDashboard.putData("shoot", new shoot());
-		
+	
 	}
 }
 

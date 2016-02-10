@@ -106,6 +106,8 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putBoolean("intake limit switch", RobotMap.intakeLimit.get());
         SmartDashboard.putNumber("shooter encoder rate", RobotMap.shooterEncoder.getRate());
         
+        System.out.println(RobotMap.intakeLimit.get());
+        
     }
     
     /**

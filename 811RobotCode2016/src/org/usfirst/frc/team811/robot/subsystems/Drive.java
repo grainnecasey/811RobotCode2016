@@ -45,10 +45,10 @@ public class Drive extends Subsystem implements Config {
     	if ((joy1.getRawAxis(TURN_DRIVE_AXIS) < .2) && (joy1.getRawAxis(TURN_DRIVE_AXIS) > -.2)) { 
     		turnVal = 0;
     	} else {
-    		turnVal = joy1.getRawAxis(FORWARD_DRIVE_AXIS);
+    		turnVal = joy1.getRawAxis(TURN_DRIVE_AXIS);
     	}
     	
-    	driveTrain.arcadeDrive(moveVal * SPEED_SCALE, turnVal);
+    	driveTrain.arcadeDrive(-1 * moveVal * SPEED_SCALE, turnVal * SPEED_SCALE);
     	
     	
     	/* double leftVal = joy1.getRawAxis(FORWARD_DRIVE_AXIS); in case Joe wants tankdrive
