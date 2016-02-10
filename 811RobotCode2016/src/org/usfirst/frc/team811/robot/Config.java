@@ -53,6 +53,7 @@ public interface Config {
 
 	int FORWARD_DRIVE_AXIS = 1;	
 	int TURN_DRIVE_AXIS = 4; 	
+	int GYRO_RESET_BUTTON = 1;
 	
 	int INTAKE_IN_BUTTON = 1;
 	int INTAKE_OUT_BUTTON = 2;
