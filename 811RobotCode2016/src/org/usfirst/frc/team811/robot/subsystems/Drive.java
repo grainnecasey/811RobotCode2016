@@ -1,15 +1,23 @@
 package org.usfirst.frc.team811.robot.subsystems;
 
 
+import java.awt.Robot;
+
 import org.usfirst.frc.team811.robot.RobotMap;
 import org.usfirst.frc.team811.robot.commands.drive_w_joysticks;
 import org.usfirst.frc.team811.robot.Config;
 
+import com.kauailabs.navx.frc.AHRS;
+
 import edu.wpi.first.wpilibj.AnalogGyro;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.PIDController;
+import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -17,7 +25,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 
-public class Drive extends Subsystem implements Config {
+public class Drive extends Subsystem implements Config, PIDOutput {
 	
     Joystick joy1 = RobotMap.joystick1;
     SpeedController frontright = RobotMap.drivefrontright;
@@ -27,6 +35,8 @@ public class Drive extends Subsystem implements Config {
     RobotDrive driveTrain = RobotMap.driveTrain;
     Encoder driveEncoder = RobotMap.driveEncoder;
     AnalogGyro driveGyro = RobotMap.driveGyro;
+    AHRS ahrs = RobotMap.ahrs;
+    PIDController turnController = RobotMap.turnController;
     
     
     // Put methods for controlling this subsystem
@@ -87,8 +97,47 @@ public class Drive extends Subsystem implements Config {
     	}
     }
     
+    public void rotateToAngle(double setpoint) {
+    	turnController = new PIDController(kP, kI, kD, kF, ahrs, this);
+        turnController.setInputRange(-180.0f,  180.0f);
+        turnController.setOutputRange(-1.0, 1.0);
+        turnController.setAbsoluteTolerance(kToleranceDegrees);
+        turnController.setContinuous(true);
+        
+        double rotateToAngleRate = 0;
+        
+        driveTrain.setSafetyEnabled(true);
+            
+            turnController.setSetpoint(setpoint);
+            turnController.enable();
+            double currentRotationRate;
+            currentRotationRate = rotateToAngleRate;
+            
+            try {
+                /* Use the joystick X axis for lateral movement,          */
+                /* Y axis for forward movement, and the current           */
+                /* calculated rotation rate (or joystick Z axis),         */
+                /* depending upon whether "rotate to angle" is active.    */
+                driveTrain.arcadeDrive(joy1.getRawAxis(FORWARD_DRIVE_AXIS), currentRotationRate);                 
+            } catch( RuntimeException ex ) {
+                DriverStation.reportError("Error communicating with drive system:  " + ex.getMessage(), true);
+            }
+            Timer.delay(0.005);		// wait for a motor update time
+        
+    }
+        
+    
+    
     public void gyroReset() {
     	driveGyro.reset();
     }
+	
+
+	@Override
+	public void pidWrite(double output) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
 

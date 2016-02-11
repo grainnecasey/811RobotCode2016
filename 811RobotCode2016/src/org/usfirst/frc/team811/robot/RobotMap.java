@@ -1,7 +1,12 @@
 package org.usfirst.frc.team811.robot;
 
+import com.kauailabs.navx.frc.AHRS;
+
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -35,6 +40,8 @@ public class RobotMap implements Config {
     public static RobotDrive driveTrain;
     public static AnalogGyro driveGyro;
     public static PIDController pid;
+    public static AHRS ahrs;
+    public static PIDController turnController;
     
     public static SpeedController intakeTalon;
     public static DigitalInput intakeLimit;
@@ -62,6 +69,7 @@ public class RobotMap implements Config {
                 drivefrontright, drivebackright);
         driveEncoder = new Encoder(DRIVE_ENCODER_PORT_1, DRIVE_ENCODER_PORT_2);
         driveGyro = new AnalogGyro(GYRO_CHANNEL);
+        ahrs = new AHRS(SPI.Port.kMXP);
         
         intakeTalon = new Talon(INTAKE_TALON_PORT);
         intakeLimit = new DigitalInput(INTAKE_LIMIT_PORT);
