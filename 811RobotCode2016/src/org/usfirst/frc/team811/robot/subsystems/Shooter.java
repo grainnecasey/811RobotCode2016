@@ -22,7 +22,7 @@ public class Shooter extends Subsystem implements Config {
 	Joystick joy2 = RobotMap.joystick2;
 	
 	SpeedController shooterTalon1 = RobotMap.shooterTalon1;
-	SpeedController shooterTalon2 = RobotMap.shooterTalon2;
+	//SpeedController shooterTalon2 = RobotMap.shooterTalon2;
 	Encoder shooterEncoder = RobotMap.shooterEncoder;
 	NetworkTable visionTable = RobotMap.visionTable;
 	
@@ -63,7 +63,7 @@ public class Shooter extends Subsystem implements Config {
     	
     	shootingTime = System.currentTimeMillis();
     	shooterTalon1.set(-SHOOTER_SPEED);
-    	shooterTalon2.set(-SHOOTER_SPEED);
+    	//shooterTalon2.set(-SHOOTER_SPEED);
     	if (isFullSpeed()) {
     		if (!intakeLimit.get()) {
     			shootingEndTime = System.currentTimeMillis();
@@ -73,7 +73,7 @@ public class Shooter extends Subsystem implements Config {
     	
     	if (shot()) {
     		shooterTalon1.set(0);
-    		shooterTalon2.set(0);
+    		//shooterTalon2.set(0);
     	}
     	
     }
@@ -109,7 +109,7 @@ public class Shooter extends Subsystem implements Config {
     	SmartDashboard.putDouble("speedScale", speedScale);
     	
     	shooterTalon1.set(-speedScale);
-    	shooterTalon2.set(-speedScale);
+    	//shooterTalon2.set(-speedScale);
     	
     	if (!intakeLimit.get()) {
 			shootingEndTime = System.currentTimeMillis();
@@ -117,14 +117,14 @@ public class Shooter extends Subsystem implements Config {
     	
     	if (shot()) {
     		shooterTalon1.set(0);
-    		shooterTalon2.set(0);
+    		//shooterTalon2.set(0);
     	}
     	
     }
     
     public void stopShooter() {
     	shooterTalon1.set(0);
-    	shooterTalon2.set(0);
+    	//shooterTalon2.set(0);
     }
     
     public void aim() {

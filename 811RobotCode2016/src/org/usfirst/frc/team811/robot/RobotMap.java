@@ -41,7 +41,7 @@ public class RobotMap implements Config {
     //limit switch set in
     
     public static SpeedController shooterTalon1;
-    public static SpeedController shooterTalon2;
+    //public static SpeedController shooterTalon2;
     public static Encoder shooterEncoder;
     
     public static CANTalon climberTalon1;
@@ -67,7 +67,7 @@ public class RobotMap implements Config {
         intakeLimit = new DigitalInput(INTAKE_LIMIT_PORT);
         
         shooterTalon1 = new Talon(SHOOTER_TALON_1_PORT);
-        shooterTalon2 = new Talon(SHOOTER_TALON_2_PORT);
+        //shooterTalon2 = new Talon(SHOOTER_TALON_2_PORT);
         shooterEncoder = new Encoder(SHOOTER_ENCODER_PORT_1, SHOOTER_ENCODER_PORT_2);
         
         climberTalon1 = new CANTalon(CLIMBER_TALON_1_PORT);

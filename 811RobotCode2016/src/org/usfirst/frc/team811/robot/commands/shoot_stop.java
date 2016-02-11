@@ -8,13 +8,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class shoot extends Command {
+public class shoot_stop extends Command {
 
-    public shoot() {
+    public shoot_stop() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.shooter);
-    	setTimeout(2);
     }
 
     // Called just before this Command runs the first time
@@ -23,18 +22,16 @@ public class shoot extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooter.shoot();
+    	Robot.shooter.stopShooter();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.shooter.shot();// || isTimedOut();
+        return (RobotMap.shooterTalon1.get() < .2 || RobotMap.shooterTalon1.get()  > -.2);
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	RobotMap.shooterTalon1.set(0);
-		//RobotMap.shooterTalon2.set(0);
     }
 
     // Called when another command which requires one or more of the same
