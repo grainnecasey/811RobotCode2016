@@ -49,6 +49,7 @@ public class Robot extends IterativeRobot {
 		drive = new Drive();
 		intake = new Intake();
 		shooter = new Shooter();
+		tracker = new VisionTracking();
 		
 		oi = new OI();
 		//System.loadLibrary(Core.NATIVE_LIBRARY_NAME);

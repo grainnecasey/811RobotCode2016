@@ -1,7 +1,10 @@
 package org.usfirst.frc.team811.robot.subsystems;
 
+import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 //import javafx.scene.image.Image;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
@@ -15,14 +18,54 @@ import java.util.concurrent.*;
 //import org.opencv.videoio.VideoCapture;
 import javax.imageio.ImageIO;
 
+import org.usfirst.frc.team811.robot.commands.imagetrack;
+import org.usfirst.frc.team811.robot.Config;
+import org.usfirst.frc.team811.robot.Robot;
+import org.usfirst.frc.team811.robot.RobotMap;
+
 public class VisionTracking extends Subsystem
 {
-
+	private NetworkTable table;
+	private double[] cenX;
+	private double[] cenY;
+	private double[] area;
+	private double[] defaultValue = new double[0];
+	double turnR = 1;
+	double turnL = -1;
+	int framethres = 10;
+	int framesizeX = 250;
+	int framesizeY = 250; //Move to config later
+	
+	RobotDrive driveTrain = RobotMap.driveTrain;
 	@Override
 	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
-		
+		setDefaultCommand(new imagetrack());
 	}
+	public double[] getX()
+	{
+		table = NetworkTable.getTable("GRIP/811Contours");
+		return table.getNumberArray("centerX", defaultValue); 
+	}
+	public void positionX()
+	{
+		cenX = getX();
+		if (cenX[0] < framesizeX / 2 - 10)
+		{
+			SmartDashboard.putString("Position X", "Left");
+			driveTrain.arcadeDrive(0, 0.3);
+		}
+		else if (cenX[0] > framesizeX / 2 + 10)
+		{
+			SmartDashboard.putString("Position X", "Right");
+			driveTrain.arcadeDrive(0, -0.3);
+		}
+		else
+		{
+			SmartDashboard.putString("Position X", "Center");
+			driveTrain.arcadeDrive(0, 0);
+		}
+	}
+	
 	/*private ScheduledExecutorService timer;
 	private VideoCapture capture;
 	private boolean cameraActive;
@@ -97,4 +140,5 @@ public class VisionTracking extends Subsystem
 			// System.err.println("Cannot connect to camera.");
 		}
 	}*/
+	
 }
