@@ -9,6 +9,6 @@
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/Grainne/workspace/opencv/build/java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="navx-mxp"/>
+	<classpathentry kind="lib" path="C:/Users/Grainne/workspace/opencv/build/java/opencv-310.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
