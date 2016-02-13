@@ -49,7 +49,7 @@ public class Drive extends Subsystem implements Config, PIDOutput {
     	if ((joy1.getRawAxis(FORWARD_DRIVE_AXIS) < .2) && (joy1.getRawAxis(FORWARD_DRIVE_AXIS) > -.2)) { 
     		moveVal = 0;
     	} else {
-    		moveVal = joy1.getRawAxis(FORWARD_DRIVE_AXIS);
+    		moveVal = -joy1.getRawAxis(FORWARD_DRIVE_AXIS);
     	}
     	
     	if ((joy1.getRawAxis(TURN_DRIVE_AXIS) < .2) && (joy1.getRawAxis(TURN_DRIVE_AXIS) > -.2)) { 
@@ -78,7 +78,7 @@ public class Drive extends Subsystem implements Config, PIDOutput {
     	driveEncoder.setDistancePerPulse(DRIVE_DISTANCE_PER_PULSE);
     	
     	while (driveEncoder.getDistance() <= driveDistance) {
-    		driveTrain.arcadeDrive(SPEED_SCALE, turnVal * -1);
+    		driveTrain.tankDrive(-.3, -.4);
     	}
     }
     
@@ -120,7 +120,7 @@ public class Drive extends Subsystem implements Config, PIDOutput {
 
 	@Override
 	public void pidWrite(double output) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

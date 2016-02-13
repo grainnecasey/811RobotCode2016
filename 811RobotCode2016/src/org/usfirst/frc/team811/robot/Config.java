@@ -9,8 +9,8 @@ public interface Config {
 	int BACK_RIGHT_PORT = 4;	
 	int BACK_LEFT_PORT = 2;		
 	
-	int DRIVE_ENCODER_PORT_1 = 1;	//TODO
-	int DRIVE_ENCODER_PORT_2 = 2; 	//TODO
+	int DRIVE_ENCODER_PORT_1 = 0;	//TODO
+	int DRIVE_ENCODER_PORT_2 = 1; 	//TODO
 	
 	int INTAKE_TALON_PORT = 0;
 	int INTAKE_LIMIT_PORT = 9; 	//TODO
