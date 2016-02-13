@@ -26,7 +26,7 @@ public class drive_turn_auto extends Command implements Config {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drive.turnAuto(turnVal);
+    	Robot.drive.rotateToAngle(turnVal);
     }
 
     // Make this return true when this Command no longer needs to run execute()

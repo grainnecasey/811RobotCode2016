@@ -22,17 +22,13 @@ public class Climber extends Subsystem implements Config {
 	Joystick joy2 = RobotMap.joystick2;
 	
 	public Climber() {
-		climberMotor.changeControlMode(CANTalon.TalonControlMode.Position); //makes it so will go to position when you use .set()
-		climberMotor.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder); //sets device so knows what it's looking for
+		climberMotor.changeControlMode(CANTalon.TalonControlMode.PercentVbus); //makes it so will go at a speed
 		climberMotor.setPID(1.0, 0.0, 0.0); //numbers are temporary
-		climberMotor.setForwardSoftLimit(CLIMBER_FORWARD_LIMIT);
-		climberMotor.setReverseSoftLimit(CLIMBER_REVERSE_LIMIT);
+		climberMotor.enableLimitSwitch(true, true);
 		
-		climberWinch.changeControlMode(CANTalon.TalonControlMode.Position); //makes it so will go to position when you use .set()
-		climberWinch.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder); //sets device so knows what it's looking for
+		climberWinch.changeControlMode(CANTalon.TalonControlMode.PercentVbus); //makes it so will go at a speed
 		climberWinch.setPID(1.0, 0.0, 0.0); //numbers are temporary
-		climberWinch.setForwardSoftLimit(CLIMBER_FORWARD_LIMIT);
-		climberWinch.setReverseSoftLimit(CLIMBER_REVERSE_LIMIT);
+		climberWinch.enableLimitSwitch(true, true);
 		
 	}
 
@@ -45,23 +41,14 @@ public class Climber extends Subsystem implements Config {
     
     public void climbUp() {
     	
-    	climberMotor.changeControlMode(CANTalon.TalonControlMode.Position);
-    	
-    	climberMotor.set(CLIMBER_UP_POSITION);
+    	climberMotor.set(.5);
     }
     
     public void climbDown() {
     	
-    	climberWinch.changeControlMode(CANTalon.TalonControlMode.Position);
-    	
-    	climberWinch.set(CLIMBER_DOWN_POSITION);
+    	climberWinch.set(.5);
     }
     
-    public void reset() {
-    	
-    	climberMotor.setPosition(0);
-    	climberWinch.setPosition(0);
-    	
-    }
+
 }
 

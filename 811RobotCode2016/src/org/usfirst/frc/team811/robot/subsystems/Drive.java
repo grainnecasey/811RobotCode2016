@@ -34,7 +34,7 @@ public class Drive extends Subsystem implements Config, PIDOutput {
     SpeedController backright = RobotMap.drivebackright;
     RobotDrive driveTrain = RobotMap.driveTrain;
     Encoder driveEncoder = RobotMap.driveEncoder;
-    AnalogGyro driveGyro = RobotMap.driveGyro;
+    //AnalogGyro driveGyro = RobotMap.driveGyro;
     AHRS ahrs = RobotMap.ahrs;
     PIDController turnController = RobotMap.turnController;
     
@@ -73,27 +73,12 @@ public class Drive extends Subsystem implements Config, PIDOutput {
     }
     
     public void driveAuto(double driveDistance) {		//TODO drive distance!
-    	double turnVal = driveGyro.getAngle();
+    	double turnVal = ahrs.getAngle();
     	
     	driveEncoder.setDistancePerPulse(DRIVE_DISTANCE_PER_PULSE);
     	
     	while (driveEncoder.getDistance() <= driveDistance) {
     		driveTrain.arcadeDrive(SPEED_SCALE, turnVal * -1);
-    	}
-    }
-    
-    public void turnAuto(double gyroTurnVal) {
-    	int turnVal;
-    	if (gyroTurnVal > 0) {
-    		turnVal = 1;
-    	} else if (gyroTurnVal < 0){
-    		turnVal = -1;
-    	} else {
-    		turnVal = 0;
-    	}
-    	
-    	while ((driveGyro.getAngle() < gyroTurnVal - GYRO_DIFFERENCE_VALUE) || (driveGyro.getAngle() > gyroTurnVal + GYRO_DIFFERENCE_VALUE)) {
-    		driveTrain.arcadeDrive(0, turnVal);
     	}
     }
     
@@ -129,7 +114,7 @@ public class Drive extends Subsystem implements Config, PIDOutput {
     
     
     public void gyroReset() {
-    	driveGyro.reset();
+    	ahrs.reset();
     }
 	
 

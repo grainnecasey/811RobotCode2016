@@ -15,6 +15,7 @@ public class climb_up extends Command implements Config {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.climber);
+    	setTimeout(5);
     }
 
     // Called just before this Command runs the first time
@@ -28,11 +29,12 @@ public class climb_up extends Command implements Config {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (timeSinceInitialized() > 0.25) && (Math.abs(RobotMap.climberTalon1.getClosedLoopError()) < CLIMBER_DIFFERENCE_VALUE);
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	RobotMap.climberTalon1.set(0);
     }
 
     // Called when another command which requires one or more of the same
