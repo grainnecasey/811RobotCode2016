@@ -102,7 +102,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         
-        SmartDashboard.putDouble("gyro value", RobotMap.driveGyro.getAngle());
+        SmartDashboard.putDouble("gyro value", RobotMap.ahrs.getYaw());
         SmartDashboard.putDouble("drive encoder", RobotMap.driveEncoder.getDistance());
         SmartDashboard.putBoolean("intake limit switch", RobotMap.intakeLimit.get());
         SmartDashboard.putDouble("shooter encoder rate", RobotMap.shooterEncoder.getRate());

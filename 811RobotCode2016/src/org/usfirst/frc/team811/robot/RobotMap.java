@@ -68,6 +68,7 @@ public class RobotMap implements Config {
         driveTrain = new RobotDrive(drivefrontleft, drivebackleft,
                 drivefrontright, drivebackright);
         driveEncoder = new Encoder(DRIVE_ENCODER_PORT_1, DRIVE_ENCODER_PORT_2);
+        driveEncoder.setReverseDirection(false);
         driveGyro = new AnalogGyro(GYRO_CHANNEL);
         ahrs = new AHRS(SPI.Port.kMXP);
         

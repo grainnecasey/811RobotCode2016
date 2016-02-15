@@ -62,9 +62,9 @@ public interface Config {
 	int TURN_DRIVE_AXIS = 4; 	
 	int GYRO_RESET_BUTTON = 1;
 	
-	int INTAKE_IN_BUTTON = 1;
-	int INTAKE_OUT_BUTTON = 2;
-	int INTAKE_STOP_BUTTON = 7;
+	int INTAKE_IN_BUTTON = 1;	//a
+	int INTAKE_OUT_BUTTON = 2;	//b
+	int INTAKE_STOP_BUTTON = 7;	//back
 	
 	int SHOOTER_BUTTON = 3;
 	

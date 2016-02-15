@@ -70,6 +70,7 @@ public class OI implements Config {
 		
 		gyro_reset = new JoystickButton(RobotMap.joystick1, GYRO_RESET_BUTTON);
 		gyro_reset.whenPressed(new gyro_reset());
+
 		
 		SmartDashboard.putData("auto_breach", new auto_breach());
 		SmartDashboard.putData("auto_breachshootFrontGoal", new auto_breachshootFrontGoal());
@@ -80,11 +81,12 @@ public class OI implements Config {
 		SmartDashboard.putData("climb_down", new climb_down());
 		SmartDashboard.putData("climb_up", new climb_up());
 		
-		SmartDashboard.putData("drive_auto(12)", new drive_auto(12));
+		SmartDashboard.putData("drive_auto(30)", new drive_auto(-164));
 		SmartDashboard.putData("drive_turn_auto(30)", new drive_turn_auto(30));
 		SmartDashboard.putData("drive_w_joysticks", new drive_w_joysticks());
 		
 		SmartDashboard.putData("gyro_reset", new gyro_reset());
+		SmartDashboard.putData("drive encoder reset", new drive_encoder_reset());
 		
 		SmartDashboard.putData("intake", new intake());
 		SmartDashboard.putData("intake back spin", new intake_backspin());

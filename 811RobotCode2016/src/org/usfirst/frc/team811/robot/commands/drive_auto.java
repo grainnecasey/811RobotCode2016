@@ -31,7 +31,9 @@ public class drive_auto extends Command implements Config {
 		
 		setTimeout(5);
 		RobotMap.driveEncoder.reset();
-		RobotMap.driveEncoder.setDistancePerPulse(.2);
+		
+		RobotMap.driveEncoder.setReverseDirection(true);
+		RobotMap.driveEncoder.setDistancePerPulse(1/9.927);
 
 		RobotMap.pid = new PIDController(1, .6, 3, new PIDSource() 
 		{
@@ -39,7 +41,7 @@ public class drive_auto extends Command implements Config {
 			{
 				SmartDashboard.putNumber("Auto value",
 						RobotMap.driveEncoder.getDistance());
-				return RobotMap.driveEncoder.getDistance();
+				return RobotMap.driveEncoder.getDistance() * -1;
 			}
 			@Override
 			public void setPIDSourceType(PIDSourceType pidSource) {
@@ -47,20 +49,20 @@ public class drive_auto extends Command implements Config {
 
 			@Override
 			public PIDSourceType getPIDSourceType() {
-				return null;
+				return PIDSourceType.kDisplacement;
 			}
 		}, new PIDOutput() {
 			public void pidWrite(double d) {
-				System.out.println(d);
-				RobotMap.driveTrain.arcadeDrive(d * .5, 0);
+				SmartDashboard.putNumber("pid loop d", d);
+				RobotMap.driveTrain.arcadeDrive(d * .63, RobotMap.ahrs.getYaw() * -.1);
 				SmartDashboard.putString("drive status", "in pidloop for driving");
 			}
 		});
 		RobotMap.driveEncoder.reset();
 		RobotMap.pid.setAbsoluteTolerance(1);
-		RobotMap.pid.setSetpoint(distance); // -17
+		RobotMap.pid.setSetpoint(distance);
 		RobotMap.pid.setOutputRange(-1, 1);
-		RobotMap.pid.setContinuous(false);
+		RobotMap.pid.setContinuous(true);
 		RobotMap.pid.enable();
 
 		SmartDashboard.putString("drive status", "drive forward auto"); 
@@ -69,13 +71,21 @@ public class drive_auto extends Command implements Config {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
+		SmartDashboard.putDouble("get error", RobotMap.pid.getError());
+		SmartDashboard.putDouble("get setpoint", RobotMap.pid.getSetpoint());
 		//Robot.drive.driveAuto(distance);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		//return RobotMap.pid.onTarget() || isTimedOut();
-		return (RobotMap.driveEncoder.getDistance() >= distance);
+		if (RobotMap.pid.onTarget()) {
+			SmartDashboard.putString("drive status", "pid on target");
+			return true;
+		} else {
+			return false;
+		}
+		//return RobotMap.pid.onTarget();// || isTimedOut();
+		//return (RobotMap.driveEncoder.getDistance() >= distance);
 	}
 
 	// Called once after isFinished returns true
@@ -89,5 +99,6 @@ public class drive_auto extends Command implements Config {
 	protected void interrupted() {
 		RobotMap.driveTrain.arcadeDrive(0, 0);
 		RobotMap.pid.disable();
+		SmartDashboard.putString("drive status", "was interrupted");
 	}
 }

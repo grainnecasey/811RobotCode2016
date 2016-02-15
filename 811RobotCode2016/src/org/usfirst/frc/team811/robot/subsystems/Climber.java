@@ -3,7 +3,8 @@ package org.usfirst.frc.team811.robot.subsystems;
 import org.usfirst.frc.team811.robot.Config;
 import org.usfirst.frc.team811.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**

@@ -41,7 +41,7 @@ public class VisionTracking extends Subsystem
 	protected void initDefaultCommand() {
 		setDefaultCommand(new imagetrack());
 	}
-	public double[] getX()
+	/*public double[] getX()
 	{
 		table = NetworkTable.getTable("GRIP/811Contours");
 		return table.getNumberArray("centerX", defaultValue); 
