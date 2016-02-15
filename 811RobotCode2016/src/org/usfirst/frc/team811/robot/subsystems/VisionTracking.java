@@ -23,31 +23,28 @@ import org.usfirst.frc.team811.robot.Config;
 import org.usfirst.frc.team811.robot.Robot;
 import org.usfirst.frc.team811.robot.RobotMap;
 
-public class VisionTracking extends Subsystem
+public class VisionTracking extends Subsystem implements Config
 {
 	private NetworkTable table;
 	private double[] cenX;
 	private double[] cenY;
 	private double[] area;
-	private double[] defaultValue = new double[0];
-	double turnR = 1;
-	double turnL = -1;
-	int framethres = 10;
-	int framesizeX = 250;
-	int framesizeY = 250; //Move to config later
+	private double[] defaultValue = new double[1];
+	 //Move to config later
 	
 	RobotDrive driveTrain = RobotMap.driveTrain;
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new imagetrack());
 	}
-	/*public double[] getX()
+	public double[] getX()
 	{
-		table = NetworkTable.getTable("GRIP/811Contours");
+		table = NetworkTable.getTable("Grip/811Contour");
 		return table.getNumberArray("centerX", defaultValue); 
 	}
 	public void positionX()
 	{
+		defaultValue[0] = 0;
+		
 		cenX = getX();
 		if (cenX[0] < framesizeX / 2 - 10)
 		{
@@ -64,6 +61,16 @@ public class VisionTracking extends Subsystem
 			SmartDashboard.putString("Position X", "Center");
 			driveTrain.arcadeDrive(0, 0);
 		}
+	}
+	
+	public double getDistance() {
+		table = NetworkTable.getTable("Grip/811Contours");
+		area = table.getNumberArray("area", defaultValue);
+		
+		double area1 = area[0];
+		double distance = area1 * AREA_TO_DISTANCE;
+		
+		return distance;
 	}
 	
 	/*private ScheduledExecutorService timer;

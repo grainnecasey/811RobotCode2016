@@ -91,7 +91,7 @@ public class OI implements Config {
 		SmartDashboard.putData("intake", new intake());
 		SmartDashboard.putData("intake back spin", new intake_backspin());
 		
-		SmartDashboard.putData("shoot_auto_aim", new shoot_auto_aim());
+		SmartDashboard.putData("shoot_auto_aim", new shoot_aimshoot());
 		SmartDashboard.putData("shoot_w_joysticks", new shoot_w_joysticks());
 		SmartDashboard.putData("shoot", new shoot());
 	

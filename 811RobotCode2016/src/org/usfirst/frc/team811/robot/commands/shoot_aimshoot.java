@@ -25,7 +25,7 @@ public class shoot_aimshoot extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addSequential(new shoot_auto_aim());
+    	addSequential(new imagetrack());
     	addSequential(new shoot());
     }
 }

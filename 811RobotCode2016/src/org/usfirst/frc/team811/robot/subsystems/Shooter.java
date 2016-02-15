@@ -101,13 +101,13 @@ public class Shooter extends Subsystem implements Config {
     	double radius = .0762; 	//.046736
     	
     	speed = ((2.4638 + (4.9 * time))/((distance/lateralVelocity) * sinDeg * 2 * radius * 3.1415926535)) * 60;
-    	SmartDashboard.putDouble("speed", speed);
+    	SmartDashboard.putNumber("speed", speed);
     	
     	double rps = speed/60;
-    	SmartDashboard.putDouble("rps", rps);
+    	SmartDashboard.putNumber("rps", rps);
     	
     	double speedScale = rps/70;
-    	SmartDashboard.putDouble("speedScale", speedScale);
+    	SmartDashboard.putNumber("speedScale", speedScale);
     	
     	shooterTalon1.set(speedScale);
     	//shooterTalon2.set(-speedScale);
@@ -128,22 +128,6 @@ public class Shooter extends Subsystem implements Config {
     	//shooterTalon2.set(0);
     }
     
-    public void aim() {
-    	double centerXVal;
-    	
-    	double[] defaultValue = new double[0];
-		while (true) {
-			 double[] centerXs = RobotMap.visionTable.getNumberArray("centerX", defaultValue);
-			 System.out.print("areas: ");
-			 for (double centerX : centerXs) {
-				 System.out.print(centerX + " ");
-				 centerXVal = centerX;
-			 }
-			 System.out.println("");
-			 Timer.delay(1);
-		}
-		
-    }
     
     public boolean shot() {
     	return shootingEndTime + SHOOTER_END_WAIT_TIME > System.currentTimeMillis();

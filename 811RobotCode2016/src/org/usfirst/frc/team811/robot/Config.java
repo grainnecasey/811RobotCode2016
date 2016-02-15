@@ -40,6 +40,13 @@ public interface Config {
 	double SHOOTER_FULL_SPEED_RATE = 20; //TODO
 	double SHOOTER_DISTANCE_PER_PULSE = 260; 	//TODO
 	
+	double AREA_TO_DISTANCE = 30/600; //TODO distance/area
+	double turnR = 1;
+	double turnL = -1;
+	int framethres = 10;
+	int framesizeX = 250;
+	int framesizeY = 250;
+	
 	boolean CAN_SHOOT = false;
 	
 	int CLIMBER_UP_POSITION = 500; 	//TODO

@@ -26,7 +26,7 @@ public class auto_breachshootFrontGoal extends CommandGroup {
         // arm.
     	
     	addSequential(new drive_auto(110)); //TODO drive val
-    	addSequential(new shoot_auto_aim());
+    	addSequential(new imagetrack());
     	addSequential(new shoot());
     }
 }

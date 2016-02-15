@@ -27,7 +27,7 @@ public class auto_breachshootLeftGoal extends CommandGroup {
     	
     	addSequential(new drive_auto(106)); 	//TODO distance
     	addSequential(new drive_turn_auto(30));	//TODO gyro val
-    	addSequential(new shoot_auto_aim());
+    	addSequential(new imagetrack());
     	addSequential(new shoot());
     }
 }
