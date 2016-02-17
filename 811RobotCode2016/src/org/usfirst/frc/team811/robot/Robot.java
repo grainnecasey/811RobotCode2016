@@ -27,6 +27,7 @@ public class Robot extends IterativeRobot {
 	public static Intake intake;
 	public static Shooter shooter;
 	public static VisionTracking tracker;
+	public static ServoCam servocam;
 	
 	
 	public static OI oi;
@@ -50,6 +51,7 @@ public class Robot extends IterativeRobot {
 		intake = new Intake();
 		shooter = new Shooter();
 		tracker = new VisionTracking();
+		servocam = new ServoCam();
 		
 		oi = new OI();
 		//System.loadLibrary(Core.NATIVE_LIBRARY_NAME);

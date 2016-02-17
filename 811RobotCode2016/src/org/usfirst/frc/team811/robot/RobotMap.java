@@ -53,13 +53,15 @@ public class RobotMap implements Config {
     
     public static CANTalon climberTalon1;
     public static CANTalon climberTalon2;
-    public static Encoder climberEncoder;
     
     public static NetworkTable visionTable;
-    //encoder set in
     
+    public static Servo servoCam;
     
     public void init() {
+    	
+    	joystick1 = new Joystick(1);
+        joystick2 = new Joystick(2);
     	
     	drivefrontright = new Talon(FRONT_RIGHT_PORT);
         drivefrontleft = new Talon(FRONT_LEFT_PORT);
@@ -69,7 +71,6 @@ public class RobotMap implements Config {
                 drivefrontright, drivebackright);
         driveEncoder = new Encoder(DRIVE_ENCODER_PORT_1, DRIVE_ENCODER_PORT_2);
         driveEncoder.setReverseDirection(false);
-        driveGyro = new AnalogGyro(GYRO_CHANNEL);
         ahrs = new AHRS(SPI.Port.kMXP);
         
         intakeTalon = new Talon(INTAKE_TALON_PORT);
@@ -83,7 +84,8 @@ public class RobotMap implements Config {
         climberTalon2 = new CANTalon(CLIMBER_TALON_2_PORT);
         
         visionTable = NetworkTable.getTable("GRIP/myContoursReport");
-        joystick1 = new Joystick(1);
-        joystick2 = new Joystick(2);
+        
+        servoCam = new Servo(SERVO_PORT);
+        
     }
 }

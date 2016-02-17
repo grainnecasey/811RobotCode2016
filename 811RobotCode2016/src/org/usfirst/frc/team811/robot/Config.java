@@ -23,7 +23,7 @@ public interface Config {
 	int CLIMBER_TALON_1_PORT = 8;	//TODO
 	int CLIMBER_TALON_2_PORT = 9;   //TODO
 	
-	int GYRO_CHANNEL = 1; //TODO
+	int SERVO_PORT = 5; //TODO
 	
 	
 	//variables
@@ -68,6 +68,8 @@ public interface Config {
 	int FORWARD_DRIVE_AXIS = 1;	
 	int TURN_DRIVE_AXIS = 4; 	
 	int GYRO_RESET_BUTTON = 1;
+	
+	int SERVO_AXIS = 3;	//triggers
 	
 	int INTAKE_IN_BUTTON = 1;	//a
 	int INTAKE_OUT_BUTTON = 2;	//b
