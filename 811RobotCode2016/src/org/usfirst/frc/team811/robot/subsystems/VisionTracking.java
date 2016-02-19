@@ -25,33 +25,24 @@ import org.usfirst.frc.team811.robot.RobotMap;
 
 public class VisionTracking extends Subsystem implements Config
 {
-	private NetworkTable table;
 	private double[] cenX;
 	private double[] cenY;
 	private double[] area;
-	private double[] defaultValue = new double[1];
-	 //Move to config later
+	private double[] defaultValue = new double[0];
 	
 	RobotDrive driveTrain = RobotMap.driveTrain;
 	@Override
 	protected void initDefaultCommand() {
 	}
-	public double[] getX()
-	{
-		table = NetworkTable.getTable("Grip/811Contour");
-		return table.getNumberArray("centerX", defaultValue); 
-	}
 	public void positionX()
 	{
-		defaultValue[0] = 0;
-		
-		cenX = getX();
-		if (cenX[0] < framesizeX / 2 - 10)
+		/*cenX = RobotMap.visionTable.getNumberArray("centerX", defaultValue);
+		if (cenX[0] < framesizeX / 2 - framethres)
 		{
 			SmartDashboard.putString("Position X", "Left");
 			driveTrain.arcadeDrive(0, 0.3);
 		}
-		else if (cenX[0] > framesizeX / 2 + 10)
+		else if (cenX[0] > framesizeX / 2 + framethres)
 		{
 			SmartDashboard.putString("Position X", "Right");
 			driveTrain.arcadeDrive(0, -0.3);
@@ -60,16 +51,35 @@ public class VisionTracking extends Subsystem implements Config
 		{
 			SmartDashboard.putString("Position X", "Center");
 			driveTrain.arcadeDrive(0, 0);
+		}*/
+		//Prob will change, if this doesn't work, just uncomment what is above
+		boolean temp = true;
+		while(temp)
+		{
+			if (cenX[0] < framesizeX / 2 - framethres)
+			{
+				SmartDashboard.putString("Position X", "Left");
+				driveTrain.arcadeDrive(0, 0.3);
+			}
+			else if (cenX[0] > framesizeX / 2 + framethres)
+			{
+				SmartDashboard.putString("Position X", "Right");
+				driveTrain.arcadeDrive(0, -0.3);
+			}
+			else
+			{
+				SmartDashboard.putString("Position X", "Center");
+				driveTrain.arcadeDrive(0, 0);
+				temp = false;
+			}
 		}
 	}
-	
 	public double getDistance() {
-		table = NetworkTable.getTable("Grip/811Contours");
-		area = table.getNumberArray("area", defaultValue);
-		
-		double area1 = area[0];
-		double distance = area1 * AREA_TO_DISTANCE;
-		
+		/*area = RobotMap.visionTable.getNumberArray("area", defaultValue);
+		double distance = area[0] * AREA_TO_DISTANCE;
+		return distance;*/
+		cenY = RobotMap.visionTable.getNumberArray("centerY", defaultValue);
+		double distance = cenY[0] * HEIGHT_TO_DISTANCE;
 		return distance;
 	}
 	

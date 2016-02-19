@@ -40,12 +40,14 @@ public interface Config {
 	double SHOOTER_FULL_SPEED_RATE = 20; //TODO
 	double SHOOTER_DISTANCE_PER_PULSE = 260; 	//TODO
 	
-	double AREA_TO_DISTANCE = 30/600; //TODO distance/area
+	
 	double turnR = 1;
 	double turnL = -1;
 	int framethres = 10;
 	int framesizeX = 250;
 	int framesizeY = 250;
+	double AREA_TO_DISTANCE = 30/600; //TODO distance/area 			Eric: Area to distance isn't a linear relationship, just fyi
+	double HEIGHT_TO_DISTANCE = 30/600; //TODO distance/height
 	
 	boolean CAN_SHOOT = false;
 	

@@ -83,7 +83,7 @@ public class RobotMap implements Config {
         climberTalon1 = new CANTalon(CLIMBER_TALON_1_PORT);
         climberTalon2 = new CANTalon(CLIMBER_TALON_2_PORT);
         
-        visionTable = NetworkTable.getTable("GRIP/myContoursReport");
+        visionTable = NetworkTable.getTable("GRIP/811Contour");
         
         servoCam = new Servo(SERVO_PORT);
         
