@@ -79,7 +79,7 @@ public class VisionTracking extends Subsystem implements Config
 		double distance = area[0] * AREA_TO_DISTANCE;
 		return distance;*/
 		cenY = RobotMap.visionTable.getNumberArray("centerY", defaultValue);
-		double distance = cenY[0] * HEIGHT_TO_DISTANCE;
+		double distance = (framesizeY - cenY[0]) * HEIGHT_TO_DISTANCE;
 		return distance;
 	}
 	
@@ -159,3 +159,4 @@ public class VisionTracking extends Subsystem implements Config
 	}*/
 	
 }
+

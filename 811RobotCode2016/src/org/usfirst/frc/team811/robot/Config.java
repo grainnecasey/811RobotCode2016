@@ -22,13 +22,13 @@ public interface Config {
 	
 	int LIFTER_TALON_PORT = 3;
 	int LIFTER_LIMIT_PORT = 6;
-	
+
 	int CLIMBER_TALON_1_PORT = 8;	//TODO
 	int CLIMBER_TALON_2_PORT = 9;   //TODO
 	
-	int SERVO_PORT = 5; //TODO
+	int SERVO_PORT = 9; 
 	
-	
+	int LIMIT_SWITCH_PORT = 6;
 	//variables
 	
 	double SPEED_SCALE = 0.75;
