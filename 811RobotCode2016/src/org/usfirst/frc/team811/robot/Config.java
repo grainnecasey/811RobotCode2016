@@ -21,7 +21,8 @@ public interface Config {
 	int SHOOTER_ENCODER_PORT_2 = 4;	//TODO
 	
 	int LIFTER_TALON_PORT = 3;
-	int LIFTER_LIMIT_PORT = 6;
+	int LIFTER_LIMIT_TOP_PORT = 8;
+	int LIFTER_LIMIT_BOTTOM_PORT = 7;
 
 	int CLIMBER_TALON_1_PORT = 8;	//TODO
 	int CLIMBER_TALON_2_PORT = 9;   //TODO
@@ -84,4 +85,6 @@ public interface Config {
 	
 	int CLIMBER_UP_BUTTON = 5;
 	int CLIMBER_DOWN_BUTTON = 6;
+	
+	int PORT_AXIS = 1;
 }
