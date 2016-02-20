@@ -20,6 +20,9 @@ public interface Config {
 	int SHOOTER_ENCODER_PORT_1 = 3;	//TODO
 	int SHOOTER_ENCODER_PORT_2 = 4;	//TODO
 	
+	int LIFTER_TALON_PORT = 3;
+	int LIFTER_LIMIT_PORT = 6;
+	
 	int CLIMBER_TALON_1_PORT = 8;	//TODO
 	int CLIMBER_TALON_2_PORT = 9;   //TODO
 	

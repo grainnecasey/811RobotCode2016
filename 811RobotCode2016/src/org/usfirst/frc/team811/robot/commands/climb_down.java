@@ -34,7 +34,7 @@ public class climb_down extends Command implements Config {
 
     // Called once after isFinished returns true
     protected void end() {
-    	RobotMap.climberTalon2.set(0);
+    	RobotMap.lifterTalon.set(0);
     }
 
     // Called when another command which requires one or more of the same

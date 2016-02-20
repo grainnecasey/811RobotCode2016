@@ -23,6 +23,7 @@ import org.usfirst.frc.team811.robot.subsystems.*;
 public class Robot extends IterativeRobot {
 
 	public static Climber climber;
+	public static PortcullisLifter lifter;
 	public static Drive drive;
 	public static Intake intake;
 	public static Shooter shooter;
@@ -47,6 +48,7 @@ public class Robot extends IterativeRobot {
     	robotMap.init();
 		
 		climber = new Climber();
+		lifter = new PortcullisLifter();
 		drive = new Drive();
 		intake = new Intake();
 		shooter = new Shooter();

@@ -2,11 +2,6 @@ package org.usfirst.frc.team811.robot;
 
 import com.kauailabs.navx.frc.AHRS;
 
-import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.PIDController;
-import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -54,6 +49,9 @@ public class RobotMap implements Config {
     public static CANTalon climberTalon1;
     public static CANTalon climberTalon2;
     
+    public static Talon lifterTalon;
+    public static DigitalInput lifterLimit;
+    
     public static NetworkTable visionTable;
     
     public static Servo servoCam;
@@ -75,6 +73,9 @@ public class RobotMap implements Config {
         
         intakeTalon = new Talon(INTAKE_TALON_PORT);
         intakeLimit = new DigitalInput(INTAKE_LIMIT_PORT);
+        
+        lifterTalon = new Talon(LIFTER_TALON_PORT);
+        lifterLimit = new DigitalInput(LIFTER_TALON_PORT);		
         
         shooterTalon1 = new Talon(SHOOTER_TALON_1_PORT);
         //shooterTalon2 = new Talon(SHOOTER_TALON_2_PORT);
