@@ -75,7 +75,7 @@ public interface Config {
 	int TURN_DRIVE_AXIS = 4; 	
 	int GYRO_RESET_BUTTON = 1;
 	
-	int SERVO_AXIS = 3;	//triggers
+	int SERVO_AXIS = 5;	//triggers
 	
 	int INTAKE_IN_BUTTON = 1;	//a
 	int INTAKE_OUT_BUTTON = 2;	//b
