@@ -87,4 +87,6 @@ public interface Config {
 	int CLIMBER_DOWN_BUTTON = 6;
 	
 	int PORT_AXIS = 1;
+	
+	int SERVO_PRESET_BUTTON = 2;
 }

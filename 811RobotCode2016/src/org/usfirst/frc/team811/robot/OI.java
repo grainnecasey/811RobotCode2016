@@ -48,6 +48,7 @@ public class OI implements Config {
 	public JoystickButton climber_up;
 	public JoystickButton climber_down;
 	public JoystickButton gyro_reset;
+	public JoystickButton servo_preset;
 	
 	public OI() {
 		
@@ -70,7 +71,10 @@ public class OI implements Config {
 		
 		gyro_reset = new JoystickButton(RobotMap.joystick1, GYRO_RESET_BUTTON);
 		gyro_reset.whenPressed(new gyro_reset());
-
+		
+		servo_preset = new JoystickButton(RobotMap.joystick1, SERVO_PRESET_BUTTON);
+		servo_preset.whenPressed(new servo_preset());
+		
 		
 		SmartDashboard.putData("auto_breach", new auto_breach());
 		SmartDashboard.putData("auto_breachshootFrontGoal", new auto_breachshootFrontGoal());
@@ -98,6 +102,8 @@ public class OI implements Config {
 		
 		SmartDashboard.putData("servo up", new servo_up());
 		SmartDashboard.putData("servo down", new servo_down());
+		SmartDashboard.putData("servo preset", new servo_preset());
+		
 	
 	}
 }
