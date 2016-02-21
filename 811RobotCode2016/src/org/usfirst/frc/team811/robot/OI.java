@@ -64,9 +64,9 @@ public class OI implements Config {
 		stopShoot.whenPressed(new shoot_stop());
 		
 		climber_up = new JoystickButton(RobotMap.joystick2, CLIMBER_UP_BUTTON);
-		climber_up.whenPressed(new climb_up());
+		climber_up.whileHeld(new climb_up());
 		climber_down = new JoystickButton(RobotMap.joystick2, CLIMBER_DOWN_BUTTON);
-		climber_down.whenPressed(new climb_down());
+		climber_down.whileHeld(new climb_down());
 		
 		gyro_reset = new JoystickButton(RobotMap.joystick1, GYRO_RESET_BUTTON);
 		gyro_reset.whenPressed(new gyro_reset());
@@ -95,6 +95,9 @@ public class OI implements Config {
 		SmartDashboard.putData("shoot_w_joysticks", new shoot_w_joysticks());
 		SmartDashboard.putData("shoot", new shoot());
 		SmartDashboard.putData("shoot stop", new shoot_stop());
+		
+		SmartDashboard.putData("servo up", new servo_up());
+		SmartDashboard.putData("servo down", new servo_down());
 	
 	}
 }

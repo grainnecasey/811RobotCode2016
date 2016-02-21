@@ -64,19 +64,12 @@ public class Shooter extends Subsystem implements Config {
     	
     	shootingTime = System.currentTimeMillis();
     	shooterTalon1.set(SHOOTER_SPEED);
-    	//shooterTalon2.set(-SHOOTER_SPEED);
-    	if (isFullSpeed()) {
-    		RobotMap.intakeTalon.set(INTAKE_SPEED);
-    		if (!intakeLimit.get()) {
-    			shootingEndTime = System.currentTimeMillis();
-    		}
-    	}
     	
-    	
-    	if (shot()) {
-    		shooterTalon1.set(0);
-    		//shooterTalon2.set(0);
-    	}
+    	//while (shootingTime + 3000 > System.currentTimeMillis()) {
+    		
+    	//}
+    	//RobotMap.intakeTalon.set(INTAKE_SPEED);
+
     	
     }
     

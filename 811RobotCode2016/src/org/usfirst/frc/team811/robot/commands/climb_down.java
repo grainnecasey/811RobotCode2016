@@ -15,7 +15,7 @@ public class climb_down extends Command implements Config {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.climber);
-    	setTimeout(10);
+    	setTimeout(3);
     }
 
     // Called just before this Command runs the first time
@@ -34,11 +34,14 @@ public class climb_down extends Command implements Config {
 
     // Called once after isFinished returns true
     protected void end() {
-    	RobotMap.lifterTalon.set(0);
+    	RobotMap.climberTalon1.set(0);
+    	RobotMap.climberTalon2.set(0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	RobotMap.climberTalon1.set(0);
+    	RobotMap.climberTalon2.set(0);
     }
 }

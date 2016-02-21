@@ -25,9 +25,9 @@ public class ServoCam extends Subsystem implements Config{
     public void joyControl() {
     	
     	if (joy1.getRawAxis(SERVO_AXIS) > .1) {
-    		servoCam.set(servoCam.get() + .1);
+    		servoCam.set(joy1.getRawAxis(SERVO_AXIS));
     	} else if (joy1.getRawAxis(SERVO_AXIS) < -.1) {
-    		servoCam.set(servoCam.get() - .1);
+    		servoCam.set(joy1.getRawAxis(SERVO_AXIS));
     	}
     	
     }

@@ -1,13 +1,18 @@
 
 package org.usfirst.frc.team811.robot;
 
+import java.io.IOException;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+
 
 //import org.opencv.core.Core;
 import org.usfirst.frc.team811.robot.commands.*;
@@ -55,6 +60,8 @@ public class Robot extends IterativeRobot {
 		tracker = new VisionTracking();
 		servocam = new ServoCam();
 		
+		final NetworkTable grip = NetworkTable.getTable("grip");
+		
 		oi = new OI();
 		//System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 		
@@ -65,6 +72,12 @@ public class Robot extends IterativeRobot {
 	     autoChooser.addObject("breach shoot left goal", new auto_breachshootLeftGoal());
 	     autoChooser.addObject("breach shoot right goal", new auto_breachshootRightGoal());
 	     SmartDashboard.putData("Auto Mode", autoChooser);
+	     
+	    // try {
+	    //	 new ProcessBuilder("/home/lvuser/grip").inheritIO().start();
+	    // } catch (IOException e) {
+	    //	 e.printStackTrace();
+	    // }
     }
 	
 	public void disabledPeriodic() {
@@ -82,6 +95,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        
     }
 
     public void teleopInit() {
@@ -106,10 +120,16 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         
-        SmartDashboard.putDouble("gyro value", RobotMap.ahrs.getYaw());
-        SmartDashboard.putDouble("drive encoder", RobotMap.driveEncoder.getDistance());
+        SmartDashboard.putNumber("gyro value", RobotMap.ahrs.getYaw());
+        SmartDashboard.putNumber("drive encoder distance", RobotMap.driveEncoder.getDistance());
+        SmartDashboard.putNumber("drive encoder raw", RobotMap.driveEncoder.getRaw());
+        SmartDashboard.putNumber("drive encoder again", RobotMap.driveEncoder.get());
         SmartDashboard.putBoolean("intake limit switch", RobotMap.intakeLimit.get());
-        SmartDashboard.putDouble("shooter encoder rate", RobotMap.shooterEncoder.getRate());
+        SmartDashboard.putNumber("shooter encoder rate", RobotMap.shooterEncoder.getRate());
+        SmartDashboard.putBoolean("climber motor forward limit", RobotMap.climberTalon1.isFwdLimitSwitchClosed());
+        SmartDashboard.putBoolean("climber motor reverse limit", RobotMap.climberTalon1.isRevLimitSwitchClosed());
+        SmartDashboard.putBoolean("climber winch forward limit", RobotMap.climberTalon2.isFwdLimitSwitchClosed());
+        SmartDashboard.putBoolean("climber winch reverse limit", RobotMap.climberTalon2.isRevLimitSwitchClosed());
         
         //System.out.println(RobotMap.intakeLimit.get());
         

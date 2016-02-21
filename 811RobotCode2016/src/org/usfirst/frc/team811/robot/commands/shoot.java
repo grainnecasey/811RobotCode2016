@@ -14,7 +14,7 @@ public class shoot extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.shooter);
-    	setTimeout(2);
+    	setTimeout(3);
     }
 
     // Called just before this Command runs the first time
@@ -28,17 +28,20 @@ public class shoot extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.shooter.shot();// || isTimedOut();
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	RobotMap.shooterTalon1.set(0);
+    	//RobotMap.shooterTalon1.set(0);
+    	//RobotMap.intakeTalon.set(0);
 		//RobotMap.shooterTalon2.set(0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	//RobotMap.shooterTalon1.set(0);
+    	//RobotMap.intakeTalon.set(0);
     }
 }

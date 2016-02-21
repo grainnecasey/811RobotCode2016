@@ -33,7 +33,7 @@ public class drive_auto extends Command implements Config {
 		RobotMap.driveEncoder.reset();
 		
 		RobotMap.driveEncoder.setReverseDirection(true);
-		RobotMap.driveEncoder.setDistancePerPulse(1/9.927);
+		RobotMap.driveEncoder.setDistancePerPulse(1/40);
 
 		RobotMap.pid = new PIDController(1, .6, 3, new PIDSource() 
 		{

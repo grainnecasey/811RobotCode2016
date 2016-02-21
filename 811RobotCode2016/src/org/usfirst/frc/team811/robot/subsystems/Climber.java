@@ -43,11 +43,13 @@ public class Climber extends Subsystem implements Config {
     public void climbUp() {
     	
     	climberMotor.set(.5);
+    	
     }
     
     public void climbDown() {
     	
-    	climberWinch.set(.5);
+    	climberWinch.set(-.5);
+    	climberMotor.set(-.5);
     }
     
 

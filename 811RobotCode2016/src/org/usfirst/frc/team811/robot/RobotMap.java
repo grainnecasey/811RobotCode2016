@@ -70,6 +70,7 @@ public class RobotMap implements Config {
                 drivefrontright, drivebackright);
         driveEncoder = new Encoder(DRIVE_ENCODER_PORT_1, DRIVE_ENCODER_PORT_2);
         driveEncoder.setReverseDirection(false);
+        driveEncoder.setDistancePerPulse(1/4);
         ahrs = new AHRS(SPI.Port.kMXP);
         
         intakeTalon = new Talon(INTAKE_TALON_PORT);
