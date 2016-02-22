@@ -12,34 +12,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
-public class OI implements Config {
-    //// CREATING BUTTONS
-    // One type of button is a joystick button which is any button on a joystick.
-    // You create one by telling it which joystick it's on and which button
-    // number it is.
-    // Joystick stick = new Joystick(port);
-    // Button button = new JoystickButton(stick, buttonNumber);
-    
-    // There are a few additional built in buttons you can use. Additionally,
-    // by subclassing Button you can create custom triggers and bind those to
-    // commands the same as any other Button.
-    
-    //// TRIGGERING COMMANDS WITH BUTTONS
-    // Once you have a button, it's trivial to bind it to a button in one of
-    // three ways:
-    
-    // Start the command when the button is pressed and let it run the command
-    // until it is finished as determined by it's isFinished method.
-    // button.whenPressed(new ExampleCommand());
-    
-    // Run the command while the button is being held down and interrupt it once
-    // the button is released.
-    // button.whileHeld(new ExampleCommand());
-    
-    // Start the command when the button is released  and let it run the command
-    // until it is finished as determined by it's isFinished method.
-    // button.whenReleased(new ExampleCommand());
-	
+public class OI implements Config 
+{
+	//creating buttons
 	public JoystickButton intake_in;
 	public JoystickButton intake_out;
 	public JoystickButton intake_stop;
@@ -50,8 +25,9 @@ public class OI implements Config {
 	public JoystickButton gyro_reset;
 	public JoystickButton servo_preset;
 	
-	public OI() {
-		
+	public OI() 
+	{
+		//Button initialize
 		intake_in = new JoystickButton(RobotMap.joystick2, INTAKE_IN_BUTTON);
 		intake_in.whenPressed(new intake());
 		intake_out = new JoystickButton(RobotMap.joystick2, INTAKE_OUT_BUTTON);
@@ -75,7 +51,7 @@ public class OI implements Config {
 		servo_preset = new JoystickButton(RobotMap.joystick1, SERVO_PRESET_BUTTON);
 		servo_preset.whenPressed(new servo_preset());
 		
-		
+		//SmartDashboard buttons
 		SmartDashboard.putData("auto_breach", new auto_breach());
 		SmartDashboard.putData("auto_breachshootFrontGoal", new auto_breachshootFrontGoal());
 		SmartDashboard.putData("auto_breachshootLeftGoal", new auto_breachshootLeftGoal());
@@ -105,7 +81,5 @@ public class OI implements Config {
 		SmartDashboard.putData("servo preset", new servo_preset());
 		
 		SmartDashboard.putData("image track aim", new imagetrack());
-		
-		
 	}
 }

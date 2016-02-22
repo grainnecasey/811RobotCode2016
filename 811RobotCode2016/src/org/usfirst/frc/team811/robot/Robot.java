@@ -22,7 +22,8 @@ import org.usfirst.frc.team811.robot.subsystems.*;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class Robot extends IterativeRobot {
+public class Robot extends IterativeRobot 
+{
 
 	public static Climber climber;
 	public static PortcullisLifter lifter;
@@ -43,7 +44,8 @@ public class Robot extends IterativeRobot {
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
-	public void robotInit() {
+	public void robotInit() 
+	{
 
 		robotMap = new RobotMap();
 		robotMap.init();
@@ -72,18 +74,23 @@ public class Robot extends IterativeRobot {
 				new auto_breachshootRightGoal());
 		SmartDashboard.putData("Auto Mode", autoChooser);
 
-		 try {
+		 try 
+		 {
 		 new ProcessBuilder("/home/lvuser/grip").inheritIO().start();
-		 } catch (IOException e) {
+		 } 
+		 catch (IOException e) 
+		 {
 		 e.printStackTrace();
 		 }
 	}
 
-	public void disabledPeriodic() {
+	public void disabledPeriodic() 
+	{
 		Scheduler.getInstance().run();
 	}
 
-	public void autonomousInit() {
+	public void autonomousInit() 
+	{
 		// schedule the autonomous command (example)
 		autonomousCommand = (Command) autoChooser.getSelected();
 		autonomousCommand.start();
@@ -92,12 +99,14 @@ public class Robot extends IterativeRobot {
 	/**
 	 * This function is called periodically during autonomous
 	 */
-	public void autonomousPeriodic() {
+	public void autonomousPeriodic() 
+	{
 		Scheduler.getInstance().run();
 
 	}
 
-	public void teleopInit() {
+	public void teleopInit() 
+	{
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -110,14 +119,16 @@ public class Robot extends IterativeRobot {
 	 * This function is called when the disabled button is hit. You can use it
 	 * to reset subsystems before shutting down.
 	 */
-	public void disabledInit() {
+	public void disabledInit() 
+	{
 
 	}
 
 	/**
 	 * This function is called periodically during operator control
 	 */
-	public void teleopPeriodic() {
+	public void teleopPeriodic()
+	{
 		Scheduler.getInstance().run();
 
 		SmartDashboard.putNumber("gyro value", RobotMap.ahrs.getYaw());
@@ -139,7 +150,7 @@ public class Robot extends IterativeRobot {
 				RobotMap.climberTalon2.isFwdLimitSwitchClosed());
 		SmartDashboard.putBoolean("climber winch reverse limit",
 				RobotMap.climberTalon2.isRevLimitSwitchClosed());
-		SmartDashboard.putBoolean("climber top limit", RobotMap.climbertopinput.get());
+		//SmartDashboard.putBoolean("climber top limit", RobotMap.climbertopinput.get());
 		SmartDashboard.putBoolean("climber bottom limit", RobotMap.climberbottominput.get());
 		SmartDashboard.putNumber("servo position", RobotMap.servoCam.get());
 		// System.out.println(RobotMap.intakeLimit.get());
@@ -149,7 +160,8 @@ public class Robot extends IterativeRobot {
 	/**
 	 * This function is called periodically during test mode
 	 */
-	public void testPeriodic() {
+	public void testPeriodic() 
+	{
 		LiveWindow.run();
 	}
 }

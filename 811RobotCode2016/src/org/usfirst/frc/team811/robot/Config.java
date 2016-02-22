@@ -71,23 +71,22 @@ public interface Config {
 	
 	
 	//controls
-
+	//driver
 	int FORWARD_DRIVE_AXIS = 1;	
 	int TURN_DRIVE_AXIS = 4; 	
 	int GYRO_RESET_BUTTON = 1;
 	
 	int SERVO_AXIS = 5;	//triggers
+	int SERVO_PRESET_BUTTON = 2;
 	
+	//operator
 	int INTAKE_IN_BUTTON = 1;	//a
 	int INTAKE_OUT_BUTTON = 2;	//b
 	int INTAKE_STOP_BUTTON = 7;	//back
 	
-	int SHOOTER_BUTTON = 3;
-	
 	int CLIMBER_UP_BUTTON = 5;
 	int CLIMBER_DOWN_BUTTON = 6;
 	
-	int PORT_AXIS = 1;
-	
-	int SERVO_PRESET_BUTTON = 2;
+	int SHOOTER_BUTTON = 3;
+	int PORT_LIFT_AXIS = 1;
 }

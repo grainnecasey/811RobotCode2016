@@ -1,4 +1,3 @@
-//TODO ALL PORTCULLIS RELATED
 package org.usfirst.frc.team811.robot.commands;
 
 import org.usfirst.frc.team811.robot.Robot;
@@ -9,13 +8,13 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class Portcullis_Down extends Command {
+public class portcullis_up extends Command {
 
-    public Portcullis_Down() {
+    public portcullis_up() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.lifter);
-    	setTimeout(3);
+    	setTimeout(10);
     }
 
     // Called just before this Command runs the first time
@@ -24,12 +23,12 @@ public class Portcullis_Down extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lifter.liftDown();
+    	Robot.lifter.liftUp();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return !RobotMap.lifterLimitTop.get();
     }
 
     // Called once after isFinished returns true

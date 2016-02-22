@@ -14,16 +14,9 @@ import edu.wpi.first.wpilibj.*;
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
  */
-public class RobotMap implements Config {
-    // For example to map the left and right motors, you could define the
-    // following variables to use with your drivetrain subsystem.
-    // public static int leftMotor = 1;
-    // public static int rightMotor = 2;
-    
-    // If you are using multiple modules, make sure to define both the port
-    // number and the module. For example you with a rangefinder:
-    // public static int rangefinderPort = 1;
-    // public static int rangefinderModule = 1;
+public class RobotMap implements Config 
+{
+	//objects
 	public static Joystick joystick1;
 	public static Joystick joystick2;
 	
@@ -57,11 +50,12 @@ public class RobotMap implements Config {
     
     public static Servo servoCam;
     
-    public static DigitalInput climbertopinput;
+    //public static DigitalInput climbertopinput;
     public static DigitalInput climberbottominput;
     
-    public void init() {
-    	
+    public void init() 
+    {
+    	//initialize
     	joystick1 = new Joystick(1);
         joystick2 = new Joystick(2);
     	
@@ -94,7 +88,7 @@ public class RobotMap implements Config {
         
         servoCam = new Servo(SERVO_PORT);
         
-        climbertopinput = new DigitalInput(LIMIT_CLIMBERTOP_PORT);
+        //climbertopinput = new DigitalInput(LIMIT_CLIMBERTOP_PORT);
         climberbottominput = new DigitalInput(LIMIT_CLIMBERBOTTOM_PORT);
     }
 }

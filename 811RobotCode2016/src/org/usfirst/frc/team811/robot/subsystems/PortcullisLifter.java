@@ -42,10 +42,10 @@ public class PortcullisLifter extends Subsystem implements Config{
     }
     
     public void portJoy() {
-    	if ((joy2.getRawAxis(PORT_AXIS) > .2) && (lifterLimitTop.get())) {
-    		lifterMotor.set(joy2.getRawAxis(PORT_AXIS));
-    	} else if (joy2.getRawAxis(PORT_AXIS) < -.2) {
-    		 lifterMotor.set(joy2.getRawAxis(PORT_AXIS));
+    	if ((joy2.getRawAxis(PORT_LIFT_AXIS) > .2) && (lifterLimitTop.get())) {
+    		lifterMotor.set(joy2.getRawAxis(PORT_LIFT_AXIS));
+    	} else if (joy2.getRawAxis(PORT_LIFT_AXIS) < -.2) {
+    		 lifterMotor.set(joy2.getRawAxis(PORT_LIFT_AXIS));
     	}
     }
 }
