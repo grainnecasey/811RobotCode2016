@@ -2,6 +2,7 @@ package org.usfirst.frc.team811.robot.subsystems;
 
 import org.usfirst.frc.team811.robot.Config;
 import org.usfirst.frc.team811.robot.RobotMap;
+import org.usfirst.frc.team811.robot.commands.servo_joy_control;
 
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -22,24 +23,25 @@ public class ServoCam extends Subsystem implements Config
 	{
 		// Set the default command for a subsystem here.
 		// setDefaultCommand(new MySpecialCommand());
+		setDefaultCommand(new servo_joy_control());
 	}
 
 	public void joyControl()
 	{
 
-		if (joy1.getRawAxis(SERVO_AXIS) > .1)
+		if (joy1.getRawButton(5))
 		{
-			servoCam.set(joy1.getRawAxis(SERVO_AXIS));
-		} else if (joy1.getRawAxis(SERVO_AXIS) < -.1)
+			servoCam.set(servoCam.get() + .01);
+		} else if (joy1.getRawButton(6))
 		{
-			servoCam.set(joy1.getRawAxis(SERVO_AXIS));
+			servoCam.set(servoCam.get() - .01);
 		}
 
 	}
 
 	public void servoPreset()
 	{
-		servoCam.set(.75);
+		servoCam.set(0.336);
 	}
 
 	public void servoUp()
@@ -49,6 +51,6 @@ public class ServoCam extends Subsystem implements Config
 
 	public void servoDown()
 	{
-		servoCam.set(-1);
+		servoCam.set(0);
 	}
 }

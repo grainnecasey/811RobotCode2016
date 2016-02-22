@@ -29,7 +29,8 @@ public interface Config {
 	
 	int SERVO_PORT = 9; 
 	
-	int LIMIT_SWITCH_PORT = 6;
+	int LIMIT_CLIMBERTOP_PORT = 4;
+	int LIMIT_CLIMBERBOTTOM_PORT = 5;
 	//variables
 	
 	double SPEED_SCALE = 0.75;
@@ -47,10 +48,10 @@ public interface Config {
 	
 	double turnR = 1;
 	double turnL = -1;
-	int framethres = 10;
+	int framethres = 5;
 	int framesizeX = 250;
 	int framesizeY = 250;
-	double AREA_TO_DISTANCE = 30/600; //TODO distance/area 			Eric: Area to distance isn't a linear relationship, just fyi
+	double AREA_TO_DISTANCE = 30/600; //TODO distance/area 	
 	double HEIGHT_TO_DISTANCE = 30/600; //TODO distance/height
 	
 	boolean CAN_SHOOT = false;

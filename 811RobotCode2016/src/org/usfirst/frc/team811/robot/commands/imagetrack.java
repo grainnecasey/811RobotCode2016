@@ -18,7 +18,7 @@ public class imagetrack extends Command implements Config{
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.tracker);
-    	//requires(Robot.drive);
+    	requires(Robot.drive);
     }
 
     // Called just before this Command runs the first time
@@ -28,12 +28,12 @@ public class imagetrack extends Command implements Config{
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//Robot.tracker.positionX();
+    	Robot.tracker.positionX();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (SmartDashboard.getString("Position X") == "Center");
+        return Robot.tracker.isCentered();
     }
 
     // Called once after isFinished returns true

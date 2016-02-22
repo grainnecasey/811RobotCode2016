@@ -104,6 +104,8 @@ public class OI implements Config {
 		SmartDashboard.putData("servo down", new servo_down());
 		SmartDashboard.putData("servo preset", new servo_preset());
 		
-	
+		SmartDashboard.putData("image track aim", new imagetrack());
+		
+		
 	}
 }

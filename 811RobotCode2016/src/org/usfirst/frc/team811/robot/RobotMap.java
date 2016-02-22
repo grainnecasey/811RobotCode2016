@@ -57,6 +57,9 @@ public class RobotMap implements Config {
     
     public static Servo servoCam;
     
+    public static DigitalInput climbertopinput;
+    public static DigitalInput climberbottominput;
+    
     public void init() {
     	
     	joystick1 = new Joystick(1);
@@ -91,5 +94,7 @@ public class RobotMap implements Config {
         
         servoCam = new Servo(SERVO_PORT);
         
+        climbertopinput = new DigitalInput(LIMIT_CLIMBERTOP_PORT);
+        climberbottominput = new DigitalInput(LIMIT_CLIMBERBOTTOM_PORT);
     }
 }
