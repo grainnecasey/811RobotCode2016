@@ -13,7 +13,7 @@ public class winch_down extends Command implements Config {
 
 	public winch_down() {
 		requires(Robot.climber);
-		setTimeout(3.75);// this number still needs to be worked out but it is within a couple inches of the needed lift height
+		setTimeout(3.75);
 	}
 
 	// Called just before this Command runs the first time

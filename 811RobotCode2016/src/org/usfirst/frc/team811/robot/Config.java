@@ -16,7 +16,7 @@ public interface Config {
 	int INTAKE_LIMIT_PORT = 6;
 	
 	int SHOOTER_TALON_1_PORT = 5; 	
-	int SHOOTER_TALON_2_PORT = 6;	
+	//int SHOOTER_TALON_2_PORT = 6;	
 	int SHOOTER_ENCODER_PORT_1 = 0;
 	int SHOOTER_ENCODER_PORT_2 = 1;
 	
