@@ -45,7 +45,7 @@ public class Climber extends Subsystem implements Config
 	{
 		 if (!RobotMap.climberbottominput.get())
 		 {
-			 climberMotor.set(0.5);
+			 climberMotor.set(-0.5);
 		 }
 		 else
 		{
@@ -56,7 +56,7 @@ public class Climber extends Subsystem implements Config
 	public void climbUp()
 	{
 		if (!RobotMap.climbertopinput.get()) {
-			climberMotor.set(-0.5);
+			climberMotor.set(0.5);
 		}
 		else
 		{
