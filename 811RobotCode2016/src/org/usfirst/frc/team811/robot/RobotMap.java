@@ -50,7 +50,7 @@ public class RobotMap implements Config
     
     public static Servo servoCam;
     
-    //public static DigitalInput climbertopinput;
+    public static DigitalInput climbertopinput;
     public static DigitalInput climberbottominput;
     
     public void init() 
@@ -67,7 +67,7 @@ public class RobotMap implements Config
                 drivefrontright, drivebackright);
         driveEncoder = new Encoder(DRIVE_ENCODER_PORT_1, DRIVE_ENCODER_PORT_2);
         driveEncoder.setReverseDirection(false);
-        driveEncoder.setDistancePerPulse(1/4);
+        driveEncoder.setDistancePerPulse(1);
         ahrs = new AHRS(SPI.Port.kMXP);
         
         intakeTalon = new Talon(INTAKE_TALON_PORT);
@@ -88,7 +88,7 @@ public class RobotMap implements Config
         
         servoCam = new Servo(SERVO_PORT);
         
-        //climbertopinput = new DigitalInput(LIMIT_CLIMBERTOP_PORT);
+        climbertopinput = new DigitalInput(LIMIT_CLIMBERTOP_PORT);
         climberbottominput = new DigitalInput(LIMIT_CLIMBERBOTTOM_PORT);
     }
 }

@@ -136,7 +136,7 @@ public class Robot extends IterativeRobot
 				RobotMap.driveEncoder.getDistance());
 		SmartDashboard.putNumber("drive encoder raw",
 				RobotMap.driveEncoder.getRaw());
-		SmartDashboard.putNumber("drive encoder again",
+		SmartDashboard.putNumber("drive encoder get",
 				RobotMap.driveEncoder.get());
 		SmartDashboard.putBoolean("intake limit switch",
 				RobotMap.intakeLimit.get());
@@ -150,7 +150,7 @@ public class Robot extends IterativeRobot
 				RobotMap.climberTalon2.isFwdLimitSwitchClosed());
 		SmartDashboard.putBoolean("climber winch reverse limit",
 				RobotMap.climberTalon2.isRevLimitSwitchClosed());
-		//SmartDashboard.putBoolean("climber top limit", RobotMap.climbertopinput.get());
+		SmartDashboard.putBoolean("climber top limit", RobotMap.climbertopinput.get());
 		SmartDashboard.putBoolean("climber bottom limit", RobotMap.climberbottominput.get());
 		SmartDashboard.putNumber("servo position", RobotMap.servoCam.get());
 		// System.out.println(RobotMap.intakeLimit.get());

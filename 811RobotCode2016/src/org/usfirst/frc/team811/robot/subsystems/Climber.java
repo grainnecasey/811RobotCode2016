@@ -41,20 +41,31 @@ public class Climber extends Subsystem implements Config
 		// setDefaultCommand(new MySpecialCommand());
 	}
 
-	public void climbUp() 
+	public void climbDown() 
 	{
-		// if (!RobotMap.climbertopinput.get())
-		// {
-		climberMotor.set(.5);
-		// }
+		 if (!RobotMap.climberbottominput.get())
+		 {
+			 climberMotor.set(0.5);
+		 }
+		 else
+		{
+			climberMotor.set(0);
+		}
 	}
 
-	public void climbDown()
+	public void climbUp()
 	{
-		if (!RobotMap.climberbottominput.get()) {
-			climberWinch.set(-.5);
-			climberMotor.set(-.5);
+		if (!RobotMap.climbertopinput.get()) {
+			climberMotor.set(-0.5);
 		}
+		else
+		{
+			climberMotor.set(0);
+		}
+	}
+	public void winchDown()
+	{
+		climberWinch.set(-1);
 	}
 
 }

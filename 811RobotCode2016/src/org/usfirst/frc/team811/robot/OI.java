@@ -24,7 +24,7 @@ public class OI implements Config
 	public JoystickButton climber_down;
 	public JoystickButton gyro_reset;
 	public JoystickButton servo_preset;
-	
+	public JoystickButton winch_down;
 	public OI() 
 	{
 		//Button initialize
@@ -41,9 +41,9 @@ public class OI implements Config
 		stopShoot.whenPressed(new shoot_stop());
 		
 		climber_up = new JoystickButton(RobotMap.joystick2, CLIMBER_UP_BUTTON);
-		climber_up.whileHeld(new climb_up());
+		climber_up.whenPressed(new climb_up());
 		climber_down = new JoystickButton(RobotMap.joystick2, CLIMBER_DOWN_BUTTON);
-		climber_down.whileHeld(new climb_down());
+		climber_down.whenPressed(new climb_down());
 		
 		gyro_reset = new JoystickButton(RobotMap.joystick1, GYRO_RESET_BUTTON);
 		gyro_reset.whenPressed(new gyro_reset());
@@ -81,5 +81,7 @@ public class OI implements Config
 		SmartDashboard.putData("servo preset", new servo_preset());
 		
 		SmartDashboard.putData("image track aim", new imagetrack());
+		
+		SmartDashboard.putData("winch down", new winch_down());
 	}
 }

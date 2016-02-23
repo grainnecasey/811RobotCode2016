@@ -29,7 +29,7 @@ public interface Config {
 	
 	int SERVO_PORT = 9; 
 	
-	int LIMIT_CLIMBERTOP_PORT = 4;
+	int LIMIT_CLIMBERTOP_PORT = 9;
 	int LIMIT_CLIMBERBOTTOM_PORT = 5;
 	//variables
 	
@@ -84,9 +84,11 @@ public interface Config {
 	int INTAKE_OUT_BUTTON = 2;	//b
 	int INTAKE_STOP_BUTTON = 7;	//back
 	
-	int CLIMBER_UP_BUTTON = 5;
-	int CLIMBER_DOWN_BUTTON = 6;
+	int CLIMBER_UP_BUTTON = 6;
+	int CLIMBER_DOWN_BUTTON = 5;
 	
 	int SHOOTER_BUTTON = 3;
 	int PORT_LIFT_AXIS = 1;
+	
+	int WINCH_DOWN_AXIS = 3;
 }

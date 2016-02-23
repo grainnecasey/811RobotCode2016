@@ -15,7 +15,7 @@ public class climb_down extends Command implements Config {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.climber);
-    	setTimeout(3);
+    	setTimeout(7);
     }
 
     // Called just before this Command runs the first time
