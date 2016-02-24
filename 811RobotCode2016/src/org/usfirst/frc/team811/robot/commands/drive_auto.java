@@ -33,7 +33,7 @@ public class drive_auto extends Command implements Config {
 		RobotMap.driveEncoder.reset();
 		
 		RobotMap.driveEncoder.setReverseDirection(true);
-		RobotMap.driveEncoder.setDistancePerPulse(1/40);
+		//RobotMap.driveEncoder.setDistancePerPulse(1/40);
 
 		RobotMap.pid = new PIDController(1, .6, 3, new PIDSource() 
 		{
@@ -54,7 +54,7 @@ public class drive_auto extends Command implements Config {
 		}, new PIDOutput() {
 			public void pidWrite(double d) {
 				SmartDashboard.putNumber("pid loop d", d);
-				RobotMap.driveTrain.arcadeDrive(d * .63, RobotMap.ahrs.getYaw() * -.1);
+				RobotMap.driveTrain.arcadeDrive(d * .7, RobotMap.ahrs.getYaw() * -.1);
 				SmartDashboard.putString("drive status", "in pidloop for driving");
 			}
 		});
@@ -81,7 +81,10 @@ public class drive_auto extends Command implements Config {
 		if (RobotMap.pid.onTarget()) {
 			SmartDashboard.putString("drive status", "pid on target");
 			return true;
-		} else {
+		} /*else if (RobotMap.pid.getError() == 0) {
+			SmartDashboard.putString("drive status", "pid error 0");
+			return true; }*/ 
+		else {
 			return false;
 		}
 		//return RobotMap.pid.onTarget();// || isTimedOut();

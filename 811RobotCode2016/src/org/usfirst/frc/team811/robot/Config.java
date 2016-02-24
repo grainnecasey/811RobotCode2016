@@ -34,7 +34,7 @@ public interface Config {
 	//variables
 	
 	double SPEED_SCALE = 0.75;
-	double DRIVE_DISTANCE_PER_PULSE = 1/14.5;	//TODO
+	double DRIVE_DISTANCE_PER_PULSE = 1/9.5;	
 	double GYRO_DIFFERENCE_VALUE = 10; //TODO
 	
 	int INTAKE_SPEED = 1;	//TODO
@@ -90,5 +90,5 @@ public interface Config {
 	int SHOOTER_BUTTON = 3;
 	int PORT_LIFT_AXIS = 1;
 	
-	int WINCH_DOWN_AXIS = 3;
+	int WINCH_DOWN_BUTTON = 8;
 }

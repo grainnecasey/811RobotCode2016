@@ -25,6 +25,6 @@ public class auto_breach extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addSequential(new drive_auto(-160)); 
+    	addSequential(new drive_auto(-150)); 
     }
 }

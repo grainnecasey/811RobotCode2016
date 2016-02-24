@@ -74,14 +74,14 @@ public class Robot extends IterativeRobot
 				new auto_breachshootRightGoal());
 		SmartDashboard.putData("Auto Mode", autoChooser);
 
-		 try 
+		 /*try 
 		 {
 		 new ProcessBuilder("/home/lvuser/grip").inheritIO().start();
 		 } 
 		 catch (IOException e) 
 		 {
 		 e.printStackTrace();
-		 }
+		 }*/
 	}
 
 	public void disabledPeriodic() 

@@ -76,7 +76,7 @@ public class Drive extends Subsystem implements Config, PIDOutput {
     public void driveAuto(double driveDistance) {		//TODO drive distance!
     	double turnVal = ahrs.getAngle();
     	
-    	driveEncoder.setDistancePerPulse(DRIVE_DISTANCE_PER_PULSE);
+    	//driveEncoder.setDistancePerPulse(DRIVE_DISTANCE_PER_PULSE);
     	
     	while (driveEncoder.getDistance() <= driveDistance) {
     		driveTrain.tankDrive(-.3, -.4);

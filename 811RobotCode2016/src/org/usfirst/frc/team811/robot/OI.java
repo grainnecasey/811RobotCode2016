@@ -25,6 +25,7 @@ public class OI implements Config
 	public JoystickButton gyro_reset;
 	public JoystickButton servo_preset;
 	public JoystickButton winch_down;
+	
 	public OI() 
 	{
 		//Button initialize
@@ -44,6 +45,9 @@ public class OI implements Config
 		climber_up.whenPressed(new climb_up());
 		climber_down = new JoystickButton(RobotMap.joystick2, CLIMBER_DOWN_BUTTON);
 		climber_down.whenPressed(new climb_down());
+		
+		winch_down = new JoystickButton(RobotMap.joystick2, WINCH_DOWN_BUTTON);
+		winch_down.whenPressed(new winch_down());
 		
 		gyro_reset = new JoystickButton(RobotMap.joystick1, GYRO_RESET_BUTTON);
 		gyro_reset.whenPressed(new gyro_reset());
