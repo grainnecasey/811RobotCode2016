@@ -73,13 +73,13 @@ public class Shooter extends Subsystem implements Config {
     	
     }
     
-    public void autoShoot() {
+    public void distanceShoot(double d) {
     	
     	//get distance from camera
     	
     	//insert equation thing
     	
-    	double distance = 116 * .0254;
+    	double distance = d * .0254;
     	double lateralVelocity = 12.38394617 * distance - 17.05999456; //meters per second
     	
     	//lateral velocity = 12.38394617 * distance - 17.05999456
@@ -88,13 +88,13 @@ public class Shooter extends Subsystem implements Config {
     	
     	double speed;
     	
-    	double x = 50 * 3.1415926535/180; //angle in radians
-    	
+    	double x = 42 * Math.PI/180; //angle in radians
+    	//TODO maybe 48
     	double sinDeg = Math.sin(x);
     	
     	double radius = .0762; 	//.046736
     	
-    	speed = ((2.4638 + (4.9 * time))/((distance/lateralVelocity) * sinDeg * 2 * radius * 3.1415926535)) * 60;
+    	speed = ((2.4638 + (4.9 * time))/((distance/lateralVelocity) * sinDeg * 2 * radius * Math.PI)) * 60;
     	SmartDashboard.putNumber("speed", speed);
     	
     	double rps = speed/60;

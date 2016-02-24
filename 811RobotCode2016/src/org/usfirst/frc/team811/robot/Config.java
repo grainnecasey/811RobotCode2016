@@ -91,4 +91,6 @@ public interface Config {
 	int PORT_LIFT_AXIS = 1;
 	
 	int WINCH_DOWN_BUTTON = 8;
+	
+	int SHOOTER_DISTANCE_BUTTON = 4;
 }
