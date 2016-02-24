@@ -79,8 +79,8 @@ public class Shooter extends Subsystem implements Config {
     	
     	//insert equation thing
     	
-    	double distance = d * .0254;
-    	double lateralVelocity = 12.38394617 * distance - 17.05999456; //meters per second
+    	double distance = d;
+    	double lateralVelocity = d * 12; //meters per second
     	
     	//lateral velocity = 12.38394617 * distance - 17.05999456
     	
@@ -100,7 +100,7 @@ public class Shooter extends Subsystem implements Config {
     	double rps = speed/60;
     	SmartDashboard.putNumber("rps", rps);
     	
-    	double speedScale = rps/70;
+    	double speedScale = rps/-1900;
     	SmartDashboard.putNumber("speedScale", speedScale);
     	
     	shooterTalon1.set(speedScale);

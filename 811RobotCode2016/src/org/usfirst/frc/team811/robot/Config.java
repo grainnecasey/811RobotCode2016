@@ -33,7 +33,7 @@ public interface Config {
 	int LIMIT_CLIMBERBOTTOM_PORT = 5;
 	//variables
 	
-	double SPEED_SCALE = 0.75;
+	double SPEED_SCALE = 0.85;
 	double DRIVE_DISTANCE_PER_PULSE = 1/9.5;	
 	double GYRO_DIFFERENCE_VALUE = 10; //TODO
 	

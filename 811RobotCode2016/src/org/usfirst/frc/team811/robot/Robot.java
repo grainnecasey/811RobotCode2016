@@ -74,14 +74,14 @@ public class Robot extends IterativeRobot
 				new auto_breachshootRightGoal());
 		SmartDashboard.putData("Auto Mode", autoChooser);
 
-		 /*try 
+		 try 
 		 {
 		 new ProcessBuilder("/home/lvuser/grip").inheritIO().start();
 		 } 
 		 catch (IOException e) 
 		 {
 		 e.printStackTrace();
-		 }*/
+		 }
 	}
 
 	public void disabledPeriodic() 
@@ -153,6 +153,7 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putBoolean("climber top limit", RobotMap.climbertopinput.get());
 		SmartDashboard.putBoolean("climber bottom limit", RobotMap.climberbottominput.get());
 		SmartDashboard.putNumber("servo position", RobotMap.servoCam.get());
+		SmartDashboard.putNumber("vision tracking distance", tracker.getDistance());
 		// System.out.println(RobotMap.intakeLimit.get());
 
 	}

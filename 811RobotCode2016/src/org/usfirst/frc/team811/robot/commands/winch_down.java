@@ -13,11 +13,12 @@ public class winch_down extends Command implements Config {
 
 	public winch_down() {
 		requires(Robot.climber);
-		setTimeout(3.75);
+		setTimeout(3.8);
 	}
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
+		
 	}
 
 	// Called repeatedly when this Command is scheduled to run

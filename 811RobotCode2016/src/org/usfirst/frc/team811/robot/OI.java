@@ -90,5 +90,7 @@ public class OI implements Config
 		SmartDashboard.putData("image track aim", new imagetrack());
 		
 		SmartDashboard.putData("winch down", new winch_down());
+		
+		SmartDashboard.putData("distance shoot", new shoot_distanceshoot());
 	}
 }

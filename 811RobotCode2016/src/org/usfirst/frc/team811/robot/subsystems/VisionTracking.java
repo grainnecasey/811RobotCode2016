@@ -164,7 +164,26 @@ public class VisionTracking extends Subsystem implements Config {
 		 * double distance = area[0] * AREA_TO_DISTANCE; return distance;
 		 */
 		cenY = RobotMap.visionTable.getNumberArray("centerY", defaultValue);
-		double distance = (framesizeY - cenY[0]) * HEIGHT_TO_DISTANCE;
+		
+		double height = 0;
+		if (cenY.length == 3) {
+			height = (framesizeY - cenY[3]);
+		} else if (cenY.length == 2) {
+			if (area[0] > area[1]) {
+				height = (framesizeY - cenY[0]);
+			} else {
+				height = (framesizeY - cenY[1]);
+			}
+		} else if (cenY.length == 1) {
+			height = (framesizeY - cenY[0]);
+		} else {
+			height = 47;
+		}
+		SmartDashboard.putNumber("vision height", height);
+		
+		
+		
+		double distance = (.02 * height) + 1.196;
 		return distance;
 	}
 
