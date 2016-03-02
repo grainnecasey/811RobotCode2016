@@ -12,11 +12,6 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.*;
 
-/**
- *
- */
-
-// 2 motors, encoder??	TODO
 
 public class Shooter extends Subsystem implements Config {
 	
@@ -78,9 +73,11 @@ public class Shooter extends Subsystem implements Config {
     	//get distance from camera
     	
     	//insert equation thing
+    	double smartDashDistance = SmartDashboard.getNumber("shooter distance", 1);
+    	double smartDashSpeed = SmartDashboard.getNumber("shooter speed", 1);
     	
-    	double distance = d;
-    	double lateralVelocity = d * 12; //meters per second
+    	double distance = smartDashDistance;
+    	double lateralVelocity = smartDashSpeed; //meters per second
     	
     	//lateral velocity = 12.38394617 * distance - 17.05999456
     	
@@ -88,9 +85,9 @@ public class Shooter extends Subsystem implements Config {
     	
     	double speed;
     	
-    	double x = 42 * Math.PI/180; //angle in radians
+    	double degree = 42 * Math.PI/180; //angle in radians
     	//TODO maybe 48
-    	double sinDeg = Math.sin(x);
+    	double sinDeg = Math.sin(degree);
     	
     	double radius = .0762; 	//.046736
     	

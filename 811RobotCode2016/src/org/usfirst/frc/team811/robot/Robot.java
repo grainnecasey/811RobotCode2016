@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+
 //import org.opencv.core.Core;
 import org.usfirst.frc.team811.robot.commands.*;
 import org.usfirst.frc.team811.robot.subsystems.*;
@@ -24,7 +25,7 @@ import org.usfirst.frc.team811.robot.subsystems.*;
  */
 public class Robot extends IterativeRobot 
 {
-
+	double[] cenY;
 	public static Climber climber;
 	public static PortcullisLifter lifter;
 	public static Drive drive;
@@ -129,6 +130,9 @@ public class Robot extends IterativeRobot
 	 */
 	public void teleopPeriodic()
 	{
+		double[] defaultValue = new double[1];
+		defaultValue[0] = 0;
+		cenY = RobotMap.visionTable.getNumberArray("centerY", defaultValue);
 		Scheduler.getInstance().run();
 
 		SmartDashboard.putNumber("gyro value", RobotMap.ahrs.getYaw());
@@ -153,7 +157,7 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putBoolean("climber top limit", RobotMap.climbertopinput.get());
 		SmartDashboard.putBoolean("climber bottom limit", RobotMap.climberbottominput.get());
 		SmartDashboard.putNumber("servo position", RobotMap.servoCam.get());
-		SmartDashboard.putNumber("vision tracking distance", tracker.getDistance());
+		SmartDashboard.putNumber("vision tracking distance", cenY[0]);//got an index out of bounds here
 		// System.out.println(RobotMap.intakeLimit.get());
 
 	}

@@ -32,6 +32,7 @@ public class shoot_distanceshoot extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return isTimedOut();
+    	
     }
 
     // Called once after isFinished returns true

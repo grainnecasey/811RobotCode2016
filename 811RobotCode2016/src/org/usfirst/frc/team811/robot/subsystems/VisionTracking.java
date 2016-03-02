@@ -25,7 +25,7 @@ import org.usfirst.frc.team811.robot.RobotMap;
 
 public class VisionTracking extends Subsystem implements Config {
 	private double[] cenX;
-	private double[] cenY;
+
 	private double[] area;
 	private double[] defaultValue = new double[1];
 
@@ -44,6 +44,8 @@ public class VisionTracking extends Subsystem implements Config {
 		// while(temp)
 		// {
 		if (cenX.length == 3) {
+			
+			
 			if (cenX[1] < framesizeX / 2 - framethres) {
 				SmartDashboard.putString("Position X", "Left");
 				driveTrain.arcadeDrive(0, -0.57);
@@ -163,29 +165,30 @@ public class VisionTracking extends Subsystem implements Config {
 		 * area = RobotMap.visionTable.getNumberArray("area", defaultValue);
 		 * double distance = area[0] * AREA_TO_DISTANCE; return distance;
 		 */
-//		cenY = RobotMap.visionTable.getNumberArray("centerY", defaultValue);
-//		
-//		double height = 0;
-//		if (cenY.length == 3) {
-//			height = (framesizeY - cenY[3]);
-//		} else if (cenY.length == 2) {
-//			if (area[0] > area[1]) {
-//				height = (framesizeY - cenY[0]);
-//			} else {
-//				height = (framesizeY - cenY[1]);
-//			}
-//		} else if (cenY.length == 1) {
-//			height = (framesizeY - cenY[0]);
-//		} else {
-//			height = 47;
-//		}
-//		SmartDashboard.putNumber("vision height", height);
-//		
-//		
-//		
-//		double distance = (.02 * height) + 1.196;
-//		return distance;
-		return 0.0;
+		double[] cenY;
+		cenY = RobotMap.visionTable.getNumberArray("centerY", defaultValue);
+		
+		double height;
+		/*if (cenY.length == 3) {
+			height = (framesizeY - cenY[2]);
+		} else if (cenY.length == 2) {
+			if (area[0] > area[1]) {
+				height = (framesizeY - cenY[0]);
+			} else {
+				height = (framesizeY - cenY[1]);
+			}*/
+		//} else if (cenY.length == 1) {
+			height = (framesizeY - cenY[0]);
+		//} else {
+			//height = 47;
+		//}
+		SmartDashboard.putNumber("vision height", height);
+		
+		
+		
+		double distance = (.02 * height) + 1.196;
+		return distance;
+		//return 0.0;
 	}
 
 	/*
