@@ -1,5 +1,7 @@
 package org.usfirst.frc.team811.robot;
 
+import edu.wpi.first.wpilibj.Relay;
+
 public interface Config {
 	
 	//ports
@@ -23,6 +25,7 @@ public interface Config {
 	int LIFTER_TALON_PORT = 7;
 	int LIFTER_LIMIT_TOP_PORT = 8;
 	int LIFTER_LIMIT_BOTTOM_PORT = 11;
+
 
 	int CLIMBER_TALON_1_PORT = 1;
 	int CLIMBER_TALON_2_PORT = 0;

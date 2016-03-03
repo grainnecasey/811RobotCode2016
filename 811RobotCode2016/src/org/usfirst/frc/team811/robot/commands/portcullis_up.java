@@ -14,7 +14,7 @@ public class portcullis_up extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.lifter);
-    	setTimeout(10);
+    	setTimeout(5);
     }
 
     // Called just before this Command runs the first time

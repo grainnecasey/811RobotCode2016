@@ -44,7 +44,8 @@ public class RobotMap implements Config
     
     public static Talon lifterTalon;
     public static DigitalInput lifterLimitTop;
-    public static DigitalInput lifterlimitBottom;
+    public static DigitalInput lifterLimitBottom;
+    public static Relay lifterRelay;
     
     public static NetworkTable visionTable;
     
@@ -75,7 +76,7 @@ public class RobotMap implements Config
         
         lifterTalon = new Talon(LIFTER_TALON_PORT);
         lifterLimitTop = new DigitalInput(LIFTER_LIMIT_TOP_PORT);
-        lifterlimitBottom = new DigitalInput(LIFTER_LIMIT_BOTTOM_PORT);
+        lifterLimitBottom = new DigitalInput(LIFTER_LIMIT_BOTTOM_PORT);
         
         shooterTalon1 = new Talon(SHOOTER_TALON_1_PORT);
         //shooterTalon2 = new Talon(SHOOTER_TALON_2_PORT);
